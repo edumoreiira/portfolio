@@ -101,7 +101,7 @@ export class DropdownSelectionComponent implements AfterViewInit{
   onClickOutside(event: MouseEvent){ // close dropdown when click outside the element
     if(this.isExpanded() == true){
       const element = event.target as HTMLElement;
-      const clickInsideDropdown = !element.contains(this.el.nativeElement);
+      const clickInsideDropdown = this.el.nativeElement.contains(element);
       if(!clickInsideDropdown){
         this.closeDropDown();
       }
