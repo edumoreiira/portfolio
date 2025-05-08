@@ -1,9 +1,20 @@
 @use "tailwindcss";
 
+@theme {
+    --default-transition-timing-function: ease-in-out;
+    --default-transition-duration: 175ms;
+}
+
 :root {
     color-scheme: dark;
 }
 
 body {
     background-color: var(--color-neutral-950);
+}
+
+button {
+    &:hover {
+        cursor: pointer;
+    }
 }
