@@ -5,7 +5,7 @@ import { language_en_us, LanguageApllication, language_pt_br } from "../models/l
     providedIn: 'root'
 
 }) export class LanguageService {
-    private currentLanguage = signal<LanguageApllication>(language_en_us);
+    private currentLanguage = signal<LanguageApllication>(language_pt_br);
     public $currentLanguage = this.currentLanguage.asReadonly();
 
     setLanguage(language: 'pt_br' | 'en_us') {

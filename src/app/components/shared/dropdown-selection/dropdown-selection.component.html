@@ -1,0 +1,32 @@
+<!-- <div class="dropdown"> -->
+    <button #DropdownButton class="dropdown__button" type="button" [disabled]="disabled()"
+    (click)="toggleDropDown()"
+    [attr.aria-expanded]="isExpanded()"
+    aria-haspopup="true"
+    [attr.aria-controls]="dropdownMenuId()"
+    [id]="dropdownId()"
+    >
+    @if(label() !== 'Dropdown Name') {
+        {{ displayedLabel() }}
+        <span class="dropdown__arrow-down" [ngStyle]="{'transform': isExpanded() ? 'rotate(225deg)' : 'rotate(45deg)'}"></span>
+    } @else {
+        <ng-content></ng-content>
+    }
+    </button>
+    @if (isExpanded()) {
+        <ul #DropdownMenu class="dropdown__list" @slideDropdown
+        [attr.aria-labelledby]="DropdownButton.id"
+        role="menu"
+        [id]="dropdownMenuId()">
+            
+            @for(item of items(); track $index){
+                <li [ngClass]="{'dropdown__item--active': item.isActive}"
+                class="dropdown__item" (click)="onclickItem(item)" (keydown)="onKeyDownItem($event, item)"
+                role="menuitem"
+                [tabIndex]="$index + 1">
+                    {{item.name}}
+                </li>
+            }
+        </ul>
+    }
+<!-- <div class="dropdown"> -->
