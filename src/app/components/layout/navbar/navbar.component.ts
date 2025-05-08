@@ -1,4 +1,7 @@
-import { Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component, computed, inject } from "@angular/core";
+import { LANGUAGE_APPLICATION, provideLanguage } from "../../../tokens/language.tokens";
+import { LanguageService } from "../../../services/language.service";
+import { language_pt_br } from "../../../models/language.model";
 
 @Component({
     selector: 'app-navbar',
@@ -10,16 +13,27 @@ import { Component } from "@angular/core";
     <span class="text-xl font-medium font-[Kanit]">[edumoreira]</span>
     <nav>
         <ul class="flex items-center gap-4">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Trabalhos</a></li>
-            <li><a href="#">Sobre</a></li>
+            <li><a href="#"> {{ nav().menu.home }} </a></li>
+            <li><a href="#"> {{ nav().menu.works }} </a></li>
+            <li><a href="#"> {{ nav().menu.about }} </a></li>
         </ul>
     </nav>
-    <button class="px-4 py-2 rounded-xl border border-neutral-700 min-w-fit">
-        Entrar em contato
-    </button>
-    `
+    <div class="flex items-center gap-4">
+        <button class="hover:text-neutral-300 transition-colors"><i class="fi fi-rr-language-exchange flex text-2xl"></i></button>
+        <button class="px-4 py-2 rounded-xl border border-neutral-700 min-w-fit">
+            {{ nav().contact }}
+        </button>
+    </div>
+    `,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavbarComponent {
+    private languageService = inject(LanguageService);
+    private language = inject(LANGUAGE_APPLICATION);
+    protected nav = computed(() => this.language().navbar);
 
+    toggleLanguage() {
+        this.languageService.$currentLanguage() === language_pt_br ? this.languageService.setLanguage('en_us') : this.languageService.setLanguage('pt_br')
+    }
+    
 }
