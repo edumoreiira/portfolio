@@ -9,13 +9,13 @@ import { createAnimation } from "../../../animations/default-transitions.animati
     selector: 'app-navbar',
     imports: [DropdownSelectionComponent],
     host: {
-        class: 'flex items-center justify-between py-3 px-4 sm:px-8 lg:px-12 gap-6 backdrop-blur bg-neutral-950/50 sticky top-0 w-full z-20 relative'
+        class: 'flex items-center justify-between py-3 px-4 sm:px-8 lg:px-12 gap-6 backdrop-blur bg-neutral-950/80 sticky top-0 w-full z-20 relative'
     },
     template: `
     <span class="text-xl font-medium font-[Kanit]">[edumoreira]</span>
     
     @if((isNavbarExpanded() === true && screenWidth() <= 640) || screenWidth() > 640) {
-        <nav class="sm:static absolute max-w-[calc(100%-1.5rem)] right-0 top-full sm:py-0 sm:px-0 py-6 px-8 sm:bg-transparent bg-neutral-950/50 sm:backdrop-blur-none backdrop-blur 
+        <nav class="sm:static absolute max-w-[calc(100%-1.5rem)] right-0 top-full sm:py-0 sm:px-0 py-6 px-8 sm:bg-transparent bg-neutral-950/90 
         sm:rounded-none rounded-bl-2xl sm:border-none border-l border-b border-neutral-700/50 overflow-hidden z-10" @slideNavbar>
             <ul class="flex sm:items-center sm:gap-8 gap-6 flex-col sm:flex-row ">
                 <li><a class="sm:p-0 p-1" href="#"> {{ nav().menu.home }} </a></li>

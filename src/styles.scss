@@ -30,3 +30,9 @@ button {
         cursor: pointer;
     }
 }
+
+.page-container {
+  width: min(1200px, 100% - 2rem);
+  margin: 0 auto;
+}
+

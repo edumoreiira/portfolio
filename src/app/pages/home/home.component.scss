@@ -1,0 +1,14 @@
+.halftone-mask {
+  mask-image: radial-gradient(ellipse at center, black 5%, transparent 70%);
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+
+  
+  -webkit-mask-image: radial-gradient(ellipse at center, black 5%, transparent 70%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+    opacity: 0.1;
+  @media screen and (min-width: 620px) {
+    opacity: 0.08;
+  }
+}
