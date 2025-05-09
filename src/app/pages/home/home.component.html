@@ -5,17 +5,16 @@
         <div class="flex sm:gap-6 gap-4 flex-col items-center justify-center">
             <div class="flex flex-col items-center text-center">
                 <span class="flex flex-col items-center gap-2 sm:mb-0 mb-2 sm:font-medium">
-                    Desenvolvedor Angular
+                    {{ lg().main.misc }}
                     <span class="inline-block h-[1px] w-[3rem] bg-neutral-800"></span> 
                 </span>
                 <h1 class="sm:text-6xl text-4xl w-[min(60rem,100%)] leading-tight">
-                    Olá, me chamo <b class="font-semibold">Eduardo.</b> Sou <b class="font-semibold">Desenvolvedor</b> e <b class="font-semibold">Designer.</b>
+                    {{ lg().main.title[0] }} <b class="font-semibold"> {{ lg().main.title[1] }} </b> {{ lg().main.title[2] }} <b class="font-semibold">{{ lg().main.title[3] }}</b> {{ lg().main.title[4] }} <b class="font-semibold">{{ lg().main.title[5] }}</b>
                 </h1>
             </div>
             <div class="w-[min(33rem,85%)] mx-auto">
                 <p class="text text-neutral-400 text-center">
-                    Desenvolvo sites modernos, rápidos e com design de impacto.
-                    Transformo ideias em páginas atraentes, funcionais e feitas para valorizar seu negócio. Se você precisa de uma landing page profissional, posso te ajudar a destacar sua marca na internet.
+                    {{ lg().main.description }}
                 </p>
             </div>
 
@@ -23,11 +22,11 @@
                 <button class="min-w-[9rem] py-2 px-4 bg-neutral-50 rounded-xl text-neutral-950 font-semibold shadow-[0_0_25px_2px] shadow-white/20
                 hover:bg-neutral-300 transition-colors
                 ">
-                    Meus Trabalhos
+                    {{ lg().main.button1 }}
                 </button>
                 <button class="min-w-[9rem] py-2 px-4 border border-neutral-800 rounded-xl text-neutral-50 
                 hover:bg-neutral-800/15 hover:border-neutral-600 hover:text-white transition-colors">
-                    Sobre Mim
+                    {{ lg().main.button2 }}
                 </button>
             </div>
 
