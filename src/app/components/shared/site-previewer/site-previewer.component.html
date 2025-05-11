@@ -1,14 +1,55 @@
-<div class="flex gap-2 border-b border-neutral-800 rounded-t-xl p-4">
-    <span class="font-semibold text-sm">Tecnologias usadas:</span>
-    <div class="flex items-center divide-x-1 divide-neutral-800 text-xs">
-        <span class="text-red-100 px-2">Angular</span>
-        <span class="text-cyan-100 px-2">Tailwind</span>
-        <span class="text-neutral-400 px-2">HTML</span>
-        <span class="text-neutral-400 px-2">CSS</span>
-        <span class="text-neutral-400 px-2">JavaScript</span>
+@if (!isOverlayOpen()) {
+    <div class="border border-neutral-800 rounded-xl overflow-hidden" style="view-transition-name: site-preview">
+        <div class="flex gap-2 border-b border-neutral-800 rounded-t-xl p-4" style="view-transition-name: technologies;">
+            <span class="font-semibold text-sm">Tecnologias usadas:</span>
+            <div class="flex items-center divide-x-1 divide-neutral-800 text-xs">
+                <span class="text-red-100 px-2">Angular</span>
+                <span class="text-cyan-100 px-2">Tailwind</span>
+                <span class="text-neutral-400 px-2">HTML</span>
+                <span class="text-neutral-400 px-2">CSS</span>
+                <span class="text-neutral-400 px-2">JavaScript</span>
+            </div>
+        </div>
+        <div class="aspect-video overflow-hidden relative group" (click)="open()" style="view-transition-name: img-preview">
+            <button class="absolute top-1/2 left-1/13 -translate-y-1/2 bg-neutral-900/15 backdrop-blur rounded-full p-3 border border-neutral-100/10 opacity-20 group-hover:opacity-100
+            hover:bg-neutral-900/30 hover:border-neutral-100/30 transition-all">
+                <i class="fi fi-rr-angle-small-left flex"></i>
+            </button>
+            <button class="absolute top-1/2 right-1/13 -translate-y-1/2 bg-neutral-900/15 backdrop-blur rounded-full p-3 border border-neutral-100/10 opacity-20 group-hover:opacity-100
+            hover:bg-neutral-900/30 hover:border-neutral-100/30 transition-all">
+                <i class="fi fi-rr-angle-small-right flex"></i>
+            </button>
+            <img class="w-full h-full object-cover object-top" style="view-transition-name: img"
+            src="./website-preview/aju-films.jpeg" alt="">
+        </div>
     </div>
-</div>
-<div class="aspect-video overflow-hidden">
-    <img class="w-full h-full object-cover object-top"
-    src="./website-preview/aju-films.jpeg" alt="">
-</div>
+}
+
+<ng-template #overlayTemplate>
+    <div class="border border-neutral-800 rounded-t-xl overflow-hidden bg-neutral-950/50 backdrop-blur flex flex-col h-full w-full" style="view-transition-name: site-preview">
+        <div class="flex justify-center gap-2 border-b border-neutral-800 rounded-t-xl p-4" style="view-transition-name: technologies;">
+            <span class="font-semibold text-lg">Tecnologias usadas:</span>
+            <div class="flex items-center divide-x-1 divide-neutral-800">
+                <span class="text-red-100 px-2">Angular</span>
+                <span class="text-cyan-100 px-2">Tailwind</span>
+                <span class="text-neutral-400 px-2">HTML</span>
+                <span class="text-neutral-400 px-2">CSS</span>
+                <span class="text-neutral-400 px-2">JavaScript</span>
+            </div>
+        </div>
+        <div class="relative group h-full overflow-hidden" style="view-transition-name: img-preview">
+            <button class="absolute top-1/2 left-1/13 -translate-y-1/2 bg-neutral-900/15 backdrop-blur rounded-full p-3 border border-neutral-100/10 opacity-20 group-hover:opacity-100
+            hover:bg-neutral-900/30 hover:border-neutral-100/30 transition-all">
+                <i class="fi fi-rr-angle-small-left flex"></i>
+            </button>
+            <button class="absolute top-1/2 right-1/13 -translate-y-1/2 bg-neutral-900/15 backdrop-blur rounded-full p-3 border border-neutral-100/10 opacity-20 group-hover:opacity-100
+            hover:bg-neutral-900/30 hover:border-neutral-100/30 transition-all">
+                <i class="fi fi-rr-angle-small-right flex"></i>
+            </button>
+            <img class="w-full h-full object-cover object-top"
+            src="./website-preview/aju-films.jpeg" alt="" style="view-transition-name: img">
+            <!-- <iframe class="w-full h-full"
+            src="https://edumoreiira.github.io/aju-films/" style="view-transition-name: img"></iframe> -->
+        </div>
+    </div>
+</ng-template>

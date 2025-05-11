@@ -1,0 +1,4 @@
+::ng-deep .cdk-overlay-dark-backdrop {
+    background-color: hsla(0, 0%, 20%, 0.1);
+    backdrop-filter: blur(4px);
+}
