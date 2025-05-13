@@ -1,16 +1,30 @@
-import { ApplicationRef, Component, inject, signal, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { ApplicationRef, Component, inject, input, signal, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
+import { NgStyle } from '@angular/common';
+import { createAnimation } from '../../../animations/default-transitions.animations';
+
+export interface WebSites {
+  technologies: technologies[];
+  title: string;
+  imgUrl: string;
+  websiteUrl: string;
+}
+
+type technologies = "angular" | "html" | "css" | "js" | "tailwind" 
 
 @Component({
   selector: 'app-site-previewer',
-  imports: [],
+  imports: [NgStyle],
   templateUrl: './site-previewer.component.html',
-  styleUrl: './site-previewer.component.scss'
+  styleUrl: './site-previewer.component.scss',
+  animations: [createAnimation('slide', { animateX: true })]
 })
 export class SitePreviewerComponent {
   private appRef = inject(ApplicationRef);
   isOverlayOpen = signal(false);
+  websites = input.required<WebSites[]>();
+  protected currentIndex = signal(0);
   private overlayRef: OverlayRef | null = null;
   @ViewChild('overlayTemplate') overlayTemplate!: TemplateRef<any>;
 
@@ -74,6 +88,22 @@ export class SitePreviewerComponent {
       this.closeOverlay();
     }
   }
-  
+
+  next() {
+    if (this.currentIndex() < this.websites().length - 1) {
+      this.currentIndex.update((index) => index + 1);
+    } else {
+      this.currentIndex.set(0);
+    }
+  }
+
+
+  previous() {
+    if (this.currentIndex() > 0) {
+      this.currentIndex.update((index) => index - 1);
+    } else {
+      this.currentIndex.set(this.websites().length - 1);
+    }
+  }
   
 }
