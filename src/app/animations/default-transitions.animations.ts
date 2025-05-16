@@ -1,4 +1,4 @@
-import { animate, animateChild, group, query, state, style, transition, trigger } from "@angular/animations";
+import { animate, animateChild, AnimationTriggerMetadata, group, query, state, style, transition, trigger } from "@angular/animations";
 
 //================================================= CREATE ANIMATION =======================================================
 export function createAnimation(triggerName: string, 
@@ -32,3 +32,12 @@ export function createQueryAnimations(triggerName: queryAnimationTriggerFormat, 
   ])
 }
 //=============================== END CREATE QUERY ANIMATIONS ================================
+
+
+
+export const fadeTrigger: AnimationTriggerMetadata = trigger('fadeTrigger', [
+  transition('* => *', [
+    style({ opacity: 0, transform: 'scale(1.05)' }),
+    animate('200ms ease-out', style({ opacity: 1, transform: 'scale(1)' }))
+  ])
+]);

@@ -46,7 +46,7 @@
             </span>
             <img class="w-full h-full object-cover object-top rounded-b-xl brightness-30 saturate-50 cursor-pointer
             group-hover:brightness-80 group-hover:saturate-100 transition-all duration-300" style="view-transition-name: img"
-            [src]="websites()[currentIndex()].imgUrl" alt=""
+            [src]="websites()[currentIndex()].imgUrl" alt="" [@fadeTrigger]="websites()[currentIndex()].imgUrl"
             (click)="open()">
         </div>
     </div>
@@ -54,25 +54,31 @@
 
 <ng-template #overlayTemplate>
     <div class="border border-neutral-800 rounded-t-xl overflow-hidden bg-neutral-950 flex flex-col h-full w-full" style="view-transition-name: site-preview">
-        <div class="flex justify-center gap-2 border-b border-neutral-800 rounded-t-xl p-4" style="view-transition-name: technologies;">
-            <span class="font-semibold text-lg" style="view-transition-name: technologies-title;">Tecnologias usadas:</span>
-            <div class="flex items-center divide-x-1 divide-neutral-800">
-                @if(websites()[currentIndex()].technologies.includes('angular')) {
-                    <span class="px-2 text-red-100" [ngStyle]="{'view-transition-name': 'angular'}" @slide>Angular</span>
-                }
-                @if(websites()[currentIndex()].technologies.includes('tailwind')) {
-                    <span class="px-2 text-cyan-100" [ngStyle]="{'view-transition-name': 'tailwind'}" @slide>Tailwind</span>
-                }
-                @if(websites()[currentIndex()].technologies.includes('html')) {
-                    <span class="px-2 text-neutral-400" [ngStyle]="{'view-transition-name': 'html'}" @slide>HTML</span>
-                }
-                @if(websites()[currentIndex()].technologies.includes('css')) {
-                    <span class="px-2 text-neutral-400" [ngStyle]="{'view-transition-name': 'css'}" @slide>CSS</span>
-                }
-                @if(websites()[currentIndex()].technologies.includes('js')) {
-                    <span class="px-2 text-neutral-400" [ngStyle]="{'view-transition-name': 'js'}" @slide>JavaScript</span>
-                }
+        <div class="flex justify-between gap-2 border-b border-neutral-800 rounded-t-xl p-4" style="view-transition-name: technologies;">
+            <span></span>
+            <div class="flex items-center gap-2">
+                <span class="font-semibold text-lg" style="view-transition-name: technologies-title;">Tecnologias usadas:</span>
+                <div class="flex items-center divide-x-1 divide-neutral-800">
+                    @if(websites()[currentIndex()].technologies.includes('angular')) {
+                        <span class="px-2 text-red-100" [ngStyle]="{'view-transition-name': 'angular'}" @slide>Angular</span>
+                    }
+                    @if(websites()[currentIndex()].technologies.includes('tailwind')) {
+                        <span class="px-2 text-cyan-100" [ngStyle]="{'view-transition-name': 'tailwind'}" @slide>Tailwind</span>
+                    }
+                    @if(websites()[currentIndex()].technologies.includes('html')) {
+                        <span class="px-2 text-neutral-400" [ngStyle]="{'view-transition-name': 'html'}" @slide>HTML</span>
+                    }
+                    @if(websites()[currentIndex()].technologies.includes('css')) {
+                        <span class="px-2 text-neutral-400" [ngStyle]="{'view-transition-name': 'css'}" @slide>CSS</span>
+                    }
+                    @if(websites()[currentIndex()].technologies.includes('js')) {
+                        <span class="px-2 text-neutral-400" [ngStyle]="{'view-transition-name': 'js'}" @slide>JavaScript</span>
+                    }
+                </div>
             </div>
+            <button class="p-2 text-xl hover:opacity-50 transition-all" (click)="close()">
+                <i class="fi fi-rr-cross-small flex"></i>
+            </button>
         </div>
         <div style="view-transition-name: img-preview" class="relative group h-full overflow-hidden transition-all duration-300">
             @if(!iframe().loaded) {
