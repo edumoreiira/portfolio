@@ -21,9 +21,9 @@ export class HomeComponent {
     },
     {
       technologies: ["angular", "html", "css", "js", ],
-      title: "Angular Tailwind",
-      imgUrl: "./website-preview/aju-films.jpeg",
-      websiteUrl: "https://edumoreiira.github.io/aju-films/"
+      title: "BeraPools",
+      imgUrl: "./website-preview/bera-pools.jpeg",
+      websiteUrl: "https://ysociety-eth.github.io/web3-wallet-manager/"
     }
   ]
 }

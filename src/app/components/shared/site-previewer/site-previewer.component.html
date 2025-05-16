@@ -84,8 +84,8 @@
                 </div>
             }
             @if(iframe().startLoading) {
-                <iframe class="w-full h-full absolute top-0 left-0"
-                src="https://edumoreiira.github.io/aju-films/" style="view-transition-name: img"
+                <iframe class="w-full h-full absolute top-0 left-0" #iframeRef
+                [src]="sanitizedUrl()" style="view-transition-name: img"
                 (load)="setIframeLoaded(true)">
                 </iframe>
             }

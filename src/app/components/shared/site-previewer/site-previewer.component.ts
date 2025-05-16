@@ -1,8 +1,9 @@
-import { ApplicationRef, Component, inject, input, signal, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { ApplicationRef, Component, ElementRef, inject, input, OnInit, signal, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { NgClass, NgStyle } from '@angular/common';
 import { createAnimation } from '../../../animations/default-transitions.animations';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 export interface WebSites {
   technologies: technologies[];
@@ -22,18 +23,26 @@ type technologies = "angular" | "html" | "css" | "js" | "tailwind"
     createAnimation('slide', { animateX: true }),
   createAnimation('fade', { opacity: '0', duration: '500ms'}),]
 })
-export class SitePreviewerComponent {
+export class SitePreviewerComponent implements OnInit {
   private appRef = inject(ApplicationRef);
+  private sanitizer = inject(DomSanitizer);
+  //
   isOverlayOpen = signal(false);
   websites = input.required<WebSites[]>();
+  sanitizedUrl = signal<SafeResourceUrl>('');
   protected currentIndex = signal(0);
   private overlayRef: OverlayRef | null = null;
   @ViewChild('overlayTemplate') overlayTemplate!: TemplateRef<any>;
+  @ViewChild('iframeRef') iframeRef: ElementRef<HTMLIFrameElement> | undefined;
 
   constructor(
     private overlay: Overlay,
     private viewContainerRef: ViewContainerRef
-  ) {}
+  ) { }
+  
+  ngOnInit() {
+    this.sanitizeCurrentUrl();
+  }
 
   iframe = signal({
     startLoading: false,
@@ -41,11 +50,9 @@ export class SitePreviewerComponent {
   });
 
   private openOverlay() {
-    console.log("x")
     if(this.overlayRef) {
       return;
     }
-    console.log("open")
     this.overlayRef = this.overlay.create({
       hasBackdrop: true,
       height: 'calc(100svh - 4rem)',
@@ -103,29 +110,35 @@ export class SitePreviewerComponent {
       this.resetIframe();
     }
   }
+  
+  setCurrentIndex(index: number) {
+    this.currentIndex.set(index);
+    this.sanitizeCurrentUrl();
+  }
 
   next() {
     if (this.currentIndex() < this.websites().length - 1) {
-      this.currentIndex.update((index) => index + 1);
+      this.setCurrentIndex(this.currentIndex() + 1);
     } else {
-      this.currentIndex.set(0);
+      this.setCurrentIndex(0);
     }
   }
 
-
   previous() {
     if (this.currentIndex() > 0) {
-      this.currentIndex.update((index) => index - 1);
+      this.setCurrentIndex(this.currentIndex() - 1);
     } else {
-      this.currentIndex.set(this.websites().length - 1);
+      this.setCurrentIndex(this.websites().length - 1);
     }
   }
 
   setIframeLoaded(loaded: boolean) {
-    this.iframe.update((state) => ({
-      ...state,
-      loaded: loaded
-    }));
+    if(this.iframeRef) {
+      this.iframe.update((state) => ({
+        ...state,
+        loaded: loaded
+      }));
+    }
   }
 
   startIframeLoading() {
@@ -142,4 +155,25 @@ export class SitePreviewerComponent {
     });
   }
   
+  private sanitizeCurrentUrl() {
+    const url = this.websites()[this.currentIndex()].websiteUrl;
+    // Adiciona timestamp para evitar cache
+    const uniqueUrl = `${url}${url.includes('?') ? '&' : '?'}t=${Date.now()}`;
+    this.sanitizedUrl.set(
+      this.sanitizer.bypassSecurityTrustResourceUrl(uniqueUrl)
+    );
+  }
+
+  handleIframeLoad() {
+  // Verifica se o iframe realmente carregou o conteúdo
+  setTimeout(() => {
+    const iframe = document.querySelector('iframe');
+    if (iframe?.contentDocument?.readyState === 'complete') {
+      this.setIframeLoaded(true);
+    } else {
+      this.handleIframeLoad(); // Tenta novamente
+    }
+  }, 100);
+}
+
 }
