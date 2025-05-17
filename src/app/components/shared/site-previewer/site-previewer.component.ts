@@ -1,14 +1,15 @@
 import { ApplicationRef, Component, computed, effect, ElementRef, inject, input, OnInit, signal, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
-import { Overlay, OverlayRef } from '@angular/cdk/overlay';
-import { TemplatePortal } from '@angular/cdk/portal';
-import { NgClass, NgStyle } from '@angular/common';
+import { NgStyle } from '@angular/common';
 import { createAnimation, fadeTrigger } from '../../../animations/default-transitions.animations';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { SitePreviewerService } from '../../../services/site-previewer.service';
+import { LANGUAGE_APPLICATION } from '../../../tokens/language.tokens';
 
 export interface WebSites {
   technologies: technologies[];
   title: string;
+  description: string;
+  button: string;
   imgUrl: string;
   websiteUrl: string;
 }
@@ -30,7 +31,8 @@ export class SitePreviewerComponent implements OnInit {
   private appRef = inject(ApplicationRef);
   private viewContainerRef = inject(ViewContainerRef);
   private sanitizer = inject(DomSanitizer);
-  private sitePreviewerService = inject(SitePreviewerService)
+  private sitePreviewerService = inject(SitePreviewerService);
+  protected lg = inject(LANGUAGE_APPLICATION);
   //
   isOverlayOpen = computed(() => this.sitePreviewerService.isOverlayOpen$());
   websites = input.required<WebSites[]>();

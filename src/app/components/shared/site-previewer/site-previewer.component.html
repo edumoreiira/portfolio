@@ -1,7 +1,7 @@
 @if (!isOverlayOpen()) {
     <div class="border border-neutral-800 rounded-xl overflow-hidden h-full flex flex-col" style="view-transition-name: site-preview">
         <div class="flex gap-2 border-b border-neutral-800 rounded-t-xl p-4" style="view-transition-name: technologies;">
-            <span class="font-semibold text-sm" style="view-transition-name: technologies-title;">Tecnologias usadas:</span>
+            <span class="font-semibold text-sm" style="view-transition-name: technologies-title;">{{ lg().works.previewer.techsHeader }}</span>
             <div class="flex items-center divide-x-1 divide-neutral-800 text-xs">
                 @if(websites()[currentIndex()].technologies.includes('angular')) {
                     <span class="px-2 text-red-100" [ngStyle]="{'view-transition-name': 'angular'}" @slide>Angular</span>
@@ -23,7 +23,7 @@
         <div class="overflow-hidden relative group h-full" style="view-transition-name: img-preview">
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center opacity-90 
             group-hover:opacity-0 transition-all duration-500 pointer-events-none">
-                <h2 class="text-4xl font-semibold"> {{ websites()[currentIndex()].title }} </h2>
+                <h2 class="text-4xl font-semibold whitespace-nowrap"> {{ websites()[currentIndex()].title }} </h2>
                 <span>Website</span>
             </div>
             <button class="absolute top-1/2 left-1/13 -translate-y-1/2 bg-neutral-900/15 backdrop-blur rounded-full p-3 border border-neutral-100/10 opacity-20 group-hover:opacity-100
@@ -58,7 +58,7 @@
         <div class="flex justify-between gap-2 border-b border-neutral-800 rounded-t-xl p-4" style="view-transition-name: technologies;">
             <span></span>
             <div class="flex items-center gap-2">
-                <span class="font-semibold text-lg" style="view-transition-name: technologies-title;">Tecnologias usadas:</span>
+                <span class="font-semibold text-lg" style="view-transition-name: technologies-title;">{{ lg().works.previewer.techsHeader }}</span>
                 <div class="flex items-center divide-x-1 divide-neutral-800">
                     @if(websites()[currentIndex()].technologies.includes('angular')) {
                         <span class="px-2 text-red-100" [ngStyle]="{'view-transition-name': 'angular'}" @slide>Angular</span>
@@ -86,7 +86,7 @@
                 <img class="w-full h-full object-cover object-top absolute top-0 left-0 z-10 brightness-80"
                 [src]="websites()[currentIndex()].imgUrl" alt="" style="view-transition-name: img" @fade>
                 <div class="absolute z-10 top-1/2 left-1/2 -translate-1/2 min-w-[16px] flex flex-col items-center gap-3 px-6 py-4 bg-neutral-900/60 backdrop-blur rounded-xl" @fade>
-                    <h2 class="text-2xl leading-none">Loading website</h2>
+                    <h2 class="text-2xl leading-none">{{ lg().works.previewer.loading }}</h2>
                     <div class="custom-loader"></div>
                 </div>
             }
