@@ -45,7 +45,9 @@
                 src="./icons/cursor-finger-click.png" alt="Click here button">
             </span>
             <img class="w-full h-full object-cover object-top rounded-b-xl brightness-60 sm:brightness-30 saturate-50 cursor-pointer
-            group-hover:brightness-60 group-hover:saturate-100 transition-all duration-300" style="view-transition-name: img"
+            group-hover:brightness-60 group-hover:saturate-100 transition-all duration-300" style="view-transition-name: img" tabIndex="0"
+            aria-haspopup="true" [attr.aria-expanded]="isOverlayOpen()"
+            (keydown)="onImageKeydown($event)"
             [src]="websites()[currentIndex()].imgUrl" [alt]="'Picture from ' + websites()[currentIndex()].title + ' website'"  
             [@fadeTrigger]="websites()[currentIndex()].imgUrl"
             (click)="open()">
@@ -77,7 +79,7 @@
                     }
                 </div>
             </div>
-            <button class="p-2 text-xl hover:opacity-50 transition-all" (click)="close()">
+            <button class="p-2 text-xl hover:opacity-50 transition-all" aria-label="Close preview" (click)="close()">
                 <i class="fi fi-rr-cross-small flex"></i>
             </button>
         </div>

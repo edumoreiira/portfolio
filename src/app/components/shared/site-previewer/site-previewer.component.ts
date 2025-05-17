@@ -147,4 +147,10 @@ export class SitePreviewerComponent implements OnInit {
     )
   }
 
+  onImageKeydown(event: KeyboardEvent) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      this.open();
+      event.preventDefault(); // Prevent default action for space key
+    }
+  }
 }

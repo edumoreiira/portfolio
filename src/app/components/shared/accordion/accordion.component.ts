@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, Component, input, output, signal } from "@angular/core";
+import { ChangeDetectionStrategy, Component, HostListener, input, output, signal } from "@angular/core";
 import { createAnimation } from "../../../animations/default-transitions.animations";
 import { NgClass } from "@angular/common";
 
 @Component({
     selector: 'accordion',
     host: {
-        class: 'accordion'
+        tabIndex: '0',
     },
     template: `
     <div class="border rounded-xl transition-colors"
@@ -31,4 +31,12 @@ export class AccordionComponent {
     title = input.required<string>();
     isOpen = input(false);
     clicked = output();
+
+    @HostListener('keydown', ['$event'])
+    onHostKeydown(event: KeyboardEvent) {
+        if (event.key === 'Enter' || event.key === ' ') {
+            this.clicked.emit();
+            event.preventDefault(); // Prevent default action for space key
+        }
+    }
 }
