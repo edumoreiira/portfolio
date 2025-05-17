@@ -1,6 +1,6 @@
 @if (!isOverlayOpen()) {
     <div class="border border-neutral-800 rounded-xl overflow-hidden h-full flex flex-col" style="view-transition-name: site-preview">
-        <div class="flex gap-2 border-b border-neutral-800 rounded-t-xl p-4" style="view-transition-name: technologies;">
+        <div class="flex items-center gap-2 border-b border-neutral-800 rounded-t-xl p-4 overflow-auto" style="view-transition-name: technologies;">
             <span class="font-semibold text-sm" style="view-transition-name: technologies-title;">{{ lg().works.previewer.techsHeader }}</span>
             <div class="flex items-center divide-x-1 divide-neutral-800 text-xs">
                 @if(websites()[currentIndex()].technologies.includes('angular')) {
@@ -21,18 +21,18 @@
             </div>
         </div>
         <div class="overflow-hidden relative group h-full" style="view-transition-name: img-preview">
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center opacity-90 
+            <div class="sm:flex hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex-col items-center opacity-90 
             group-hover:opacity-0 transition-all duration-500 pointer-events-none">
                 <h2 class="text-4xl font-semibold whitespace-nowrap"> {{ websites()[currentIndex()].title }} </h2>
                 <span>Website</span>
             </div>
-            <button class="absolute top-1/2 left-1/13 -translate-y-1/2 bg-neutral-900/15 backdrop-blur rounded-full p-3 border border-neutral-100/10 opacity-20 group-hover:opacity-100
+            <button class="absolute top-1/2 left-1/13 -translate-y-1/2 bg-neutral-900/15 backdrop-blur rounded-full p-3 border border-neutral-100/10 sm:opacity-20 group-hover:opacity-100
             hover:bg-neutral-900/30 hover:border-neutral-100/30 transition-all z-10"
             style="view-transition-name: left-btn;"
             (click)="previous()">
                 <i class="fi fi-rr-angle-small-left flex"></i>
             </button>
-            <button class="absolute top-1/2 right-1/13 -translate-y-1/2 bg-neutral-900/15 backdrop-blur rounded-full p-3 border border-neutral-100/10 opacity-20 group-hover:opacity-100
+            <button class="absolute top-1/2 right-1/13 -translate-y-1/2 bg-neutral-900/15 backdrop-blur rounded-full p-3 border border-neutral-100/10 sm:opacity-20 group-hover:opacity-100
             hover:bg-neutral-900/30 hover:border-neutral-100/30 transition-all z-10"
             style="view-transition-name: right-btn;"
             (click)="next()">
@@ -44,7 +44,7 @@
                 <img class="w-6 h-6 object-fit object-center" 
                 src="./icons/cursor-finger-click.png" alt="Click here button">
             </span>
-            <img class="w-full h-full object-cover object-top rounded-b-xl brightness-30 saturate-50 cursor-pointer
+            <img class="w-full h-full object-cover object-top rounded-b-xl brightness-60 sm:brightness-30 saturate-50 cursor-pointer
             group-hover:brightness-60 group-hover:saturate-100 transition-all duration-300" style="view-transition-name: img"
             [src]="websites()[currentIndex()].imgUrl" [alt]="'Picture from ' + websites()[currentIndex()].title + ' website'"  
             [@fadeTrigger]="websites()[currentIndex()].imgUrl"
@@ -55,11 +55,11 @@
 
 <ng-template #overlayTemplate>
     <div class="border border-neutral-800 rounded-t-xl overflow-hidden bg-neutral-950 flex flex-col h-full w-full" style="view-transition-name: site-preview">
-        <div class="flex justify-between gap-2 border-b border-neutral-800 rounded-t-xl p-4" style="view-transition-name: technologies;">
+        <div class="flex justify-between border-b border-neutral-800 rounded-t-xl p-2 sm:p-4" style="view-transition-name: technologies;">
             <span></span>
-            <div class="flex items-center gap-2">
-                <span class="font-semibold text-lg" style="view-transition-name: technologies-title;">{{ lg().works.previewer.techsHeader }}</span>
-                <div class="flex items-center divide-x-1 divide-neutral-800">
+            <div class="flex flex-col sm:flex-row items-center gap-2">
+                <span class="font-semibold sm:text-lg text-sm" style="view-transition-name: technologies-title;">{{ lg().works.previewer.techsHeader }}</span>
+                <div class="flex items-center divide-x-1 divide-neutral-800 sm:text-base text-xs">
                     @if(websites()[currentIndex()].technologies.includes('angular')) {
                         <span class="px-2 text-red-100" [ngStyle]="{'view-transition-name': 'angular'}" @slide>Angular</span>
                     }
@@ -86,7 +86,7 @@
                 <img class="w-full h-full object-cover object-top absolute top-0 left-0 z-10 brightness-80"
                 [src]="websites()[currentIndex()].imgUrl" alt="" style="view-transition-name: img" @fade>
                 <div class="absolute z-10 top-1/2 left-1/2 -translate-1/2 min-w-[16px] flex flex-col items-center gap-3 px-6 py-4 bg-neutral-900/60 backdrop-blur rounded-xl" @fade>
-                    <h2 class="text-2xl leading-none">{{ lg().works.previewer.loading }}</h2>
+                    <h2 class="text-2xl leading-none whitespace-nowrap">{{ lg().works.previewer.loading }}</h2>
                     <div class="custom-loader"></div>
                 </div>
             }

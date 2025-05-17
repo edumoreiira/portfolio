@@ -2,12 +2,14 @@ import { Overlay, OverlayRef } from "@angular/cdk/overlay";
 import { TemplatePortal } from "@angular/cdk/portal";
 import { inject, Injectable, signal, TemplateRef, ViewContainerRef } from "@angular/core";
 import { Observable } from "rxjs";
+import { DocumentListenerService } from "./document-listener.service";
 
 @Injectable({
     providedIn: 'root'
 })
 export class SitePreviewerService {
     private overlay = inject(Overlay);
+    private dls = inject(DocumentListenerService);
     // 
     private overlayRef: OverlayRef | null = null;
     private isOverlayOpen = signal(false);
@@ -27,7 +29,7 @@ export class SitePreviewerService {
         this.overlayRef = this.overlay.create({
             hasBackdrop: true,
             height: 'calc(100svh - 4rem)',
-            width: 'calc(100svw - 10rem)',
+            width: this.dls.screenSize$() > 1280 ? 'calc(100svw - 10rem)' : this.dls.screenSize$() > 640 ? 'calc(100svw - 3rem)' : 'calc(100svw - 1rem)',
             backdropClass: 'cdk-overlay-dark-backdrop',
             positionStrategy: this.overlay.position()
                 .global()

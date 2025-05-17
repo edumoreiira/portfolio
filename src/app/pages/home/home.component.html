@@ -36,7 +36,7 @@
 </main>
 
 <section>
-    <div class="page-container grid grid-cols-2 gap-4 py-12 md:py-16 grid-rows-1 h-[36rem]">
+    <div class="page-container grid sm:grid-cols-2 grid-cols-1 gap-4 py-12 md:py-16 grid-rows-1 lg:h-[36rem] sm:h-[38rem] h-auto">
         <div class="flex flex-col gap-4 justify-between">
             <div>
                 <h1 class="text-2xl font-semibold mb-2">{{ lg().works.title }}</h1>
@@ -46,17 +46,17 @@
             </div>
             @for (item of websites(); track $index) {
                 <accordion [title]="item.title" [isOpen]="currentSiteIndex() === $index" (clicked)="setCurrentSiteIndex($index)">
-                    <div class="flex flex-col gap-2 items-start">
+                    <div class="flex flex-col gap-4 items-start">
                         <p class="text-neutral-400">{{ item.description }}</p>
                         <a [href]="item.websiteUrl" target="_blank" rel="noopener"
                         class="text-white font-semibold text-shadow-[0_2px_16px] text-shadow-white/25 
-                        hover:text-neutral-400 transition-colors"
+                        hover:text-neutral-400 transition-colors text-sm self-end"
                         > {{ item.button }} </a>
                     </div>
                 </accordion>
             }
         </div>
-        <div>
+        <div class="aspect-video sm:aspect-auto ">
             <app-site-previewer [websites]="websites()"/>
         </div>
     </div>
