@@ -5,7 +5,8 @@ import { createAnimation } from '../../../animations/default-transitions.animati
   selector: 'app-tag',
   imports: [],
   host: {
-    class: 'max-w-[24rem] flex flex-col py-4 px-6 rounded-2xl border border-neutral-800 text-neutral-200 cursor-pointer hover:bg-neutral-600/10 hover:border-neutral-600 transition-all duration-200 overflow-hidden'
+    tabIndex: '0',
+    class: 'sm:max-w-[24rem] sm:w-auto w-full flex flex-col py-4 px-6 rounded-2xl border border-neutral-800 text-neutral-200 cursor-pointer hover:bg-neutral-600/10 hover:border-neutral-600 transition-all duration-200 overflow-hidden'
   },
   template: `
     <div class="flex items-center justify-between gap-18">
@@ -40,5 +41,13 @@ export class TagComponent {
   @HostListener('click')
   onHostClick() {
     this.toggle()
+  }
+
+  @HostListener('keydown', ['$event'])
+  onHostKeydown(event: KeyboardEvent) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      this.toggle();
+      event.preventDefault(); // Prevent default action for space key
+    }
   }
 }
