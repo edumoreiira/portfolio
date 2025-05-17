@@ -1,4 +1,4 @@
-import { ApplicationRef, Component, computed, ElementRef, inject, input, OnInit, signal, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { ApplicationRef, Component, computed, effect, ElementRef, inject, input, OnInit, signal, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { NgClass, NgStyle } from '@angular/common';
@@ -47,6 +47,13 @@ export class SitePreviewerComponent implements OnInit {
     this.sanitizeCurrentUrl();
   }
 
+  constructor() {
+    effect(() => {
+      this.currentIndex();
+      this.sanitizeCurrentUrl(); // Update the sanitized URL whenever the current index changes
+    })
+  }
+  
   private openOverlay() {
     const overlayRef = this.sitePreviewerService.openOverlay(this.overlayTemplate, this.viewContainerRef)
     if (overlayRef) {
@@ -99,7 +106,6 @@ export class SitePreviewerComponent implements OnInit {
     } else {
       this.sitePreviewerService.setCurrentIndex(index);
     }
-    this.sanitizeCurrentUrl();
   }
 
   next() {
