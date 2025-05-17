@@ -1,13 +1,14 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { LANGUAGE_APPLICATION } from '../../tokens/language.tokens';
 import { ButtonComponent } from '../../components/base/button.component';
 import { SitePreviewerComponent, WebSites } from "../../components/shared/site-previewer/site-previewer.component";
 import { AccordionComponent } from "../../components/shared/accordion/accordion.component";
 import { SitePreviewerService } from '../../services/site-previewer.service';
+import { TagComponent } from "../../components/shared/tag/tag.component";
 
 @Component({
   selector: 'app-home',
-  imports: [ButtonComponent, SitePreviewerComponent, AccordionComponent],
+  imports: [ButtonComponent, SitePreviewerComponent, AccordionComponent, TagComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
