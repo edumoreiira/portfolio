@@ -22,6 +22,10 @@ export interface LanguageApllication {
             techsHeader: string;
             loading: string;
         }
+    },
+    advantages: {
+        title: string,
+        items: { title: string, description: string }[];
     }
 }
 
@@ -65,6 +69,31 @@ export const language_pt_br: LanguageApllication = {
             techsHeader: "Tecnologias:",
             loading: "Carregando website"
         }
+    },
+    advantages: {
+        title: "Por que me escolher?",
+        items: [ 
+            {
+                title: "Entrega rápida",
+                description: "Normalmente entrego antes do prazo final, e nunca após ele."
+            },
+            {
+                title: "Design que vende",
+                description: "Sites pensados para chamar atenção e converter visitantes em clientes."
+            },
+            {
+                title: "Totalmente responsivo",
+                description: "Seu site funciona perfeitamente em celulares, tablets e computadores."
+            },
+            {
+                title: "Atendimento personalizado",
+                description: "Você fala direto comigo, sem intermediários. Escuto suas ideias e explico tudo com clareza."
+            },
+            {
+                title: "Seu site no Google",
+                description: "O site é construído com técnicas de SEO que facilitam sua aparição nos resultados de busca, aumentando a visibilidade e atraindo mais visitantes de forma orgânica."
+            }
+        ]
     }
 }
 
@@ -108,6 +137,30 @@ export const language_en_us: LanguageApllication = {
             techsHeader: "Technologies:",
             loading: "Loading website"
         }
+    },
+    advantages: {
+        title: "Why choose me?",
+        items: [
+            {
+                title: "Fast delivery",
+                description: "Usually I deliver before the deadline, and never after it."
+            },
+            {
+                title: "Design that sells",
+                description: "Websites designed to attract attention and convert visitors into customers."
+            },
+            {
+                title: "Fully responsive",
+                description: "Your website works perfectly on mobile phones, tablets, and computers."
+            },
+            {
+                title: "Personalized service",
+                description: "You talk directly to me, with no intermediaries. I listen to your ideas and explain everything clearly."
+            },
+            {
+                title: "Your site on Google",
+                description: "The site is built with SEO techniques that make it easier to appear in search results, increasing visibility and attracting more visitors organically."
+            }
+        ]
     }
-    
 }

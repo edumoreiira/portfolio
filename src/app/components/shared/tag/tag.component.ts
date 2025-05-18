@@ -1,4 +1,4 @@
-import { Component, HostListener, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, input, signal } from '@angular/core';
 import { createAnimation } from '../../../animations/default-transitions.animations';
 
 @Component({
@@ -24,7 +24,8 @@ import { createAnimation } from '../../../animations/default-transitions.animati
   styleUrl: './tag.component.scss',
   animations: [
     createAnimation('slide', { animateX: true, animateY: true, duration: '300ms',opacity: '0' }),
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TagComponent {
   title = input.required();
