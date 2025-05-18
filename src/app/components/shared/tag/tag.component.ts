@@ -6,7 +6,7 @@ import { createAnimation } from '../../../animations/default-transitions.animati
   imports: [],
   host: {
     tabIndex: '0',
-    class: 'sm:max-w-[24rem] sm:w-auto w-full flex flex-col py-4 px-6 rounded-2xl border border-neutral-800 text-neutral-200 cursor-pointer hover:bg-neutral-600/10 hover:border-neutral-600 transition-all duration-200 overflow-hidden'
+    class: 'md:max-w-[min(24rem,100%)] md:w-auto w-full flex flex-col py-4 px-6 rounded-2xl border border-neutral-800 text-neutral-200 cursor-pointer hover:bg-neutral-600/10 hover:border-neutral-600 transition-all duration-200 overflow-hidden'
   },
   template: `
     <div class="flex items-center justify-between gap-18">
