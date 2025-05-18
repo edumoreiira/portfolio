@@ -6,10 +6,10 @@ import { createAnimation } from '../../../animations/default-transitions.animati
   imports: [],
   host: {
     tabIndex: '0',
-    class: 'md:max-w-[min(24rem,100%)] md:w-auto w-full flex flex-col py-4 px-6 rounded-2xl border border-neutral-800 text-neutral-200 cursor-pointer hover:bg-neutral-600/10 hover:border-neutral-600 transition-all duration-200 overflow-hidden'
+    class: 'md:max-w-[min(25rem,100%)] lg:max-w-[min(27rem,100%)] md:w-auto w-full flex flex-col py-4 px-6 rounded-2xl border border-neutral-800 text-neutral-200 cursor-pointer hover:bg-neutral-600/10 hover:border-neutral-600 transition-all duration-200 overflow-hidden'
   },
   template: `
-    <div class="flex items-center justify-between gap-18">
+    <div class="flex items-center justify-between gap-18 lg:gap-22">
       <h3 class="leading-none font-semibold text-lg whitespace-nowrap">{{ title() }}</h3>
       <div class="flex items-center gap-1">
           <i class="fi {{ icon() }} flex text-lg"></i>

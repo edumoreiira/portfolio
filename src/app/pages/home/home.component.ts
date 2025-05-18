@@ -5,10 +5,11 @@ import { SitePreviewerComponent, WebSites } from "../../components/shared/site-p
 import { AccordionComponent } from "../../components/shared/accordion/accordion.component";
 import { SitePreviewerService } from '../../services/site-previewer.service';
 import { TagComponent } from "../../components/shared/tag/tag.component";
+import { TechComponent } from "../../components/shared/tech/tech.component";
 
 @Component({
   selector: 'app-home',
-  imports: [ButtonComponent, SitePreviewerComponent, AccordionComponent, TagComponent],
+  imports: [ButtonComponent, SitePreviewerComponent, AccordionComponent, TagComponent, TechComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
