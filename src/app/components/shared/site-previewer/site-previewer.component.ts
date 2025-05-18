@@ -1,4 +1,4 @@
-import { ApplicationRef, Component, computed, effect, ElementRef, inject, input, OnInit, signal, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { ApplicationRef, ChangeDetectionStrategy, ChangeDetectorRef, Component, computed, effect, ElementRef, inject, input, OnInit, signal, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { NgStyle } from '@angular/common';
 import { createAnimation, fadeTrigger } from '../../../animations/default-transitions.animations';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -25,9 +25,11 @@ type technologies = "angular" | "html" | "css" | "js" | "tailwind"
     createAnimation('slide', { animateX: true }),
     createAnimation('fade', { opacity: '0', duration: '500ms'}),
     fadeTrigger
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SitePreviewerComponent implements OnInit {
+  private cdr = inject(ChangeDetectorRef)
   private appRef = inject(ApplicationRef);
   private viewContainerRef = inject(ViewContainerRef);
   private sanitizer = inject(DomSanitizer);
@@ -120,6 +122,7 @@ export class SitePreviewerComponent implements OnInit {
 
   setIframeLoaded(loaded: boolean) {
     if(this.iframeRef) {
+      console.log('Iframe loaded:', loaded);
       this.iframe.update((state) => ({
         ...state,
         loaded: loaded
@@ -132,6 +135,9 @@ export class SitePreviewerComponent implements OnInit {
       ...state,
       startLoading: true
     }));
+    setTimeout(() => {
+      this.cdr.detectChanges(); // Force change detection so iframeRef is updated
+    },); 
   }
 
   resetIframe() {

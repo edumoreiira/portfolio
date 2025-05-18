@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { LANGUAGE_APPLICATION } from '../../tokens/language.tokens';
 import { ButtonComponent } from '../../components/base/button.component';
 import { SitePreviewerComponent, WebSites } from "../../components/shared/site-previewer/site-previewer.component";
@@ -10,7 +10,8 @@ import { TagComponent } from "../../components/shared/tag/tag.component";
   selector: 'app-home',
   imports: [ButtonComponent, SitePreviewerComponent, AccordionComponent, TagComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent {
   protected lg = inject(LANGUAGE_APPLICATION);
