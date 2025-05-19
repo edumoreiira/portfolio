@@ -8,7 +8,7 @@ import { NgClass } from "@angular/common";
         tabIndex: '0',
     },
     template: `
-    <div class="border rounded-xl transition-colors"
+    <div class="border rounded-xl transition-colors hover:border-neutral-700 "
         [ngClass]="isOpen() ? 'border-neutral-600 bg-neutral-600/5' : 'border-neutral-800'">
         <div class="flex items-center justify-between px-6 py-4 cursor-pointer"
         (click)="clicked.emit()">
