@@ -10,7 +10,7 @@ import { AllTechsComponent } from "../../components/layout/all-techs/all-techs.c
 
 @Component({
   selector: 'app-home',
-  imports: [ButtonComponent, SitePreviewerComponent, AccordionComponent, TagComponent, TechComponent, AllTechsComponent],
+  imports: [ButtonComponent, SitePreviewerComponent, AccordionComponent, TagComponent, AllTechsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
