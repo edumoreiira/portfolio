@@ -64,8 +64,15 @@
 
 <section>
     <div class="page-container py-12 md:py-16">
+        <app-all-techs></app-all-techs>
+    </div>
+        
+</section>
+
+<section>
+    <div class="page-container py-12 md:py-16">
         <div>
-            <h1 class="text-4xl font-semibold mb-6 sm:mb-8 text-center">{{ lg().advantages.title }}</h1>
+            <h1 class="text-3xl sm:text-4xl font-semibold mb-6 sm:mb-8 text-center">{{ lg().advantages.title }}</h1>
             <div class="flex flex-col gap-4">
                 <div class="flex items-start justify-center gap-4 md:flex-row flex-col">
                     <app-tag class="bg-gradient-to-bl from-0% to-40% from-blue-800/5 to-transparent"
@@ -101,37 +108,4 @@
             </div>
         </div>
     </div>
-</section>
-
-<section>
-    <div class="page-container py-12 md:py-16">
-        <div class="max-w-full overflow-auto grid [grid-template-columns:repeat(auto-fit,6.7rem)] [grid-auto-rows:6.7rem] [grid-auto-flow:dense] gap-3">
-            <!-- header -->
-            <div class="col-span-4 inline-flex w-max items-start flex-col gap-4">
-                <h1 class="inline text-4xl font-semibold">Tecnologias que eu domino</h1>
-                <div class="flex w-full gap-2 items-center">
-                    <span class="text-4xl font-semibold uppercase leading-none">2025</span>
-                    <div class="h-px bg-neutral-800 flex-1"></div>
-                    <span class="text-lg leading-none">Eduardo Moreira</span>
-                </div>
-            </div>
-            <!-- /header -->
-            <app-tech class="col-span-2 row-span-2" iconUrl="./icons/techs/angular.png" title="Angular" hoveredColor="var(--color-pink-500)" />
-            <app-tech class="col-span-2" iconUrl="./icons/techs/html.png" title="HTML" hoveredColor="var(--color-amber-700)"/>
-            <app-tech iconUrl="./icons/techs/pinescript.webp" title="Pine Script" hoveredColor="var(--color-emerald-700)"/>
-            <app-tech class="row-span-2" iconUrl="./icons/techs/css-3.png" title="CSS" hoveredColor="var(--color-blue-700)"/>
-            <app-tech class="col-span-2" iconUrl="./icons/techs/javascript.png" title="JavaScript" hoveredColor="var(--color-yellow-400)" />
-            <app-tech iconUrl="./icons/techs/ethersjs.png" title="Ethers.js" hoveredColor="var(--color-blue-800)" />
-            <app-tech class="row-span-2" iconUrl="./icons/techs/photoshop.png" title="Photoshop" hoveredColor="var(--color-blue-950)"/>
-            <app-tech class="col-span-2" iconUrl="./icons/techs/tailwind.png" title="Tailwind CSS" hoveredColor="var(--color-sky-500)" />
-            <app-tech iconUrl="./icons/techs/sass.png" title="Sass" hoveredColor="var(--color-rose-400)" />
-            <app-tech class="col-span-2" iconUrl="./icons/techs/spring-boot.png" title="Spring Boot" hoveredColor="var(--color-lime-600)"/>
-            <app-tech iconUrl="./icons/techs/postgresql.webp" title="PostgreSQL" hoveredColor="var(--color-sky-950)"/>
-            <app-tech class="col-span-2" iconUrl="./icons/techs/typescript.png" title="TypeScript" hoveredColor="var(--color-blue-500)"/>
-            <app-tech iconUrl="./icons/techs/docker.png" title="Docker" hoveredColor="var(--color-sky-600)"/>
-            <app-tech iconUrl="./icons/techs/illustrator.png" title="Illustrator" hoveredColor="var(--color-amber-900)" />
-            <app-tech class="col-span-2" iconUrl="./icons/techs/git.png" title="Git" hoveredColor="var(--color-orange-600)"/>
-        </div>
-    </div>
-        
 </section>

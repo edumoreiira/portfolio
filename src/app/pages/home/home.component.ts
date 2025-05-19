@@ -6,10 +6,11 @@ import { AccordionComponent } from "../../components/shared/accordion/accordion.
 import { SitePreviewerService } from '../../services/site-previewer.service';
 import { TagComponent } from "../../components/shared/tag/tag.component";
 import { TechComponent } from "../../components/shared/tech/tech.component";
+import { AllTechsComponent } from "../../components/layout/all-techs/all-techs.component";
 
 @Component({
   selector: 'app-home',
-  imports: [ButtonComponent, SitePreviewerComponent, AccordionComponent, TagComponent, TechComponent],
+  imports: [ButtonComponent, SitePreviewerComponent, AccordionComponent, TagComponent, TechComponent, AllTechsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

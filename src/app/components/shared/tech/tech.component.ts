@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component, HostListener, input, signal } from 
         class: 'flex items-center justify-center p-2 rounded-2xl border border-neutral-800 transition-all group relative overflow-hidden'
     },
     template: `
-    <span class="h-[50px] aspect-square transition-colors"
+    <span class="h-[28px] xs:h-[35px] sm:h-[45px] aspect-square transition-colors"
     style="mask: url('{{ iconUrl() }}') no-repeat center; mask-size: contain;"
     [ngStyle]="{ 'background-color': hovered() ?  hoveredColor() : 'hsla(0, 0%, 100%, 0.5)'  }"></span>
     <div class="absolute inset-[0] bg-neutral-600/5 backdrop-blur-xs opacity-0 

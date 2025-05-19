@@ -1,0 +1,45 @@
+<div class="relative max-w-full grid sm:[grid-template-columns:repeat(auto-fit,minmax(6.82rem,1fr))] sm:[grid-auto-rows:6.82rem] [grid-auto-flow:dense] gap-3 
+xs:[grid-template-columns:repeat(auto-fit,minmax(5.5rem,min(1fr,100%)))] xs:[grid-auto-rows:5.5rem] 
+[grid-template-columns:repeat(auto-fit,minmax(5rem,min(1fr,100%)))] [grid-auto-rows:5rem]
+sm:overflow-auto transition-all duration-300"
+[ngClass]="opened() ? 'max-h-[50rem]' : 'max-h-[28rem] sm:max-h-[50rem] overflow-hidden'">
+    <!-- header -->
+    <div class="col-span-4 inline-flex w-max items-start mx-auto sm:mx-0 flex-col gap-1 sm:gap-4">
+        <h1 class="inline text-[1.75rem] sm:text-4xl font-semibold">Tecnologias que eu domino</h1>
+        <div class="flex w-full gap-2 items-center">
+            <span class="text-[1.75rem] sm:text-4xl font-semibold uppercase leading-none">2025</span>
+            <div class="h-px bg-neutral-800 flex-1"></div>
+            <span class="text-lg leading-none">Eduardo Moreira</span>
+        </div>
+    </div>
+    <!-- /header -->
+    <app-tech class="col-span-2 row-span-2" iconUrl="./icons/techs/angular.png" title="Angular" hoveredColor="var(--color-pink-500)" />
+    <app-tech class="col-span-2" iconUrl="./icons/techs/html.png" title="HTML" hoveredColor="var(--color-amber-700)"/>
+    <app-tech iconUrl="./icons/techs/pinescript.webp" title="Pine Script" hoveredColor="var(--color-emerald-700)"/>
+    <app-tech class="row-span-2 sm:col-span-1 col-span-2" iconUrl="./icons/techs/css-3.png" title="CSS" hoveredColor="var(--color-blue-700)"/>
+    <app-tech class="col-span-2" iconUrl="./icons/techs/javascript.png" title="JavaScript" hoveredColor="var(--color-yellow-400)" />
+    <app-tech iconUrl="./icons/techs/ethersjs.png" title="Ethers.js" hoveredColor="var(--color-blue-800)" />
+    <app-tech class="row-span-2" iconUrl="./icons/techs/photoshop.png" title="Photoshop" hoveredColor="var(--color-blue-950)"/>
+    <app-tech class="col-span-2" iconUrl="./icons/techs/tailwind.png" title="Tailwind CSS" hoveredColor="var(--color-sky-500)" />
+    <app-tech iconUrl="./icons/techs/sass.png" title="Sass" hoveredColor="var(--color-rose-400)" />
+    <app-tech class="col-span-2" iconUrl="./icons/techs/spring-boot.png" title="Spring Boot" hoveredColor="var(--color-lime-600)"/>
+    <app-tech iconUrl="./icons/techs/postgresql.webp" title="PostgreSQL" hoveredColor="var(--color-sky-950)"/>
+    <app-tech class="col-span-2" iconUrl="./icons/techs/typescript.png" title="TypeScript" hoveredColor="var(--color-blue-500)"/>
+    <app-tech iconUrl="./icons/techs/docker.png" title="Docker" hoveredColor="var(--color-sky-600)"/>
+    <app-tech iconUrl="./icons/techs/illustrator.png" title="Illustrator" hoveredColor="var(--color-amber-900)" />
+    <app-tech class="col-span-2" iconUrl="./icons/techs/git.png" title="Git" hoveredColor="var(--color-orange-600)"/>
+
+    <!-- show more container -->
+    <div class="left-0 right-0 h-[3rem] bottom-0 absolute flex items-end justify-center bg-gradient-to-b from-transparent to-neutral-950 
+    from-0% to-100% pointer-events-none sm:hidden"
+    [ngClass]="{ 'translate-y-full': opened() }">
+        <button class="flex items-center text-white font-semibold text-shadow-[0_2px_16px] text-shadow-white/40
+        hover:text-neutral-400 transition-colors pointer-events-auto"
+        [ngClass]="opened() ? 'flex-col-reverse' : 'flex-col' "
+        (click)="toggle()">
+            {{ opened() ? 'Ver menos' : 'Ver mais' }}
+            <i class="fi fi-rr-caret-down flex transition-transform"
+            [ngClass]="{ 'rotate-180' : opened() }"></i>
+        </button>
+    </div>
+</div>
