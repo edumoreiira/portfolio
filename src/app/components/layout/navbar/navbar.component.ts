@@ -5,23 +5,26 @@ import { language_en_us, language_pt_br } from "../../../models/language.model";
 import { DropdownListOptions, DropdownSelectionComponent } from "../../shared/dropdown-selection/dropdown-selection.component";
 import { createAnimation } from "../../../animations/default-transitions.animations";
 import { ButtonComponent } from "../../base/button.component";
+import { DocumentListenerService } from "../../../services/document-listener.service";
+import { NgClass } from "@angular/common";
 
 @Component({
     selector: 'app-navbar',
-    imports: [DropdownSelectionComponent, ButtonComponent],
+    imports: [DropdownSelectionComponent, ButtonComponent, NgClass],
     host: {
         class: 'flex items-center justify-between py-3 px-4 sm:px-8 lg:px-12 gap-6 backdrop-blur bg-neutral-950/80 sticky top-0 w-full z-20 relative'
     },
     template: `
-    <span class="text-xl font-medium font-[Kanit]">[edumoreira]</span>
+    <span class="font-medium font-[Kanit] cursor-default transition-all"
+    [ngClass]="scrollFromTop() > 120 ? 'text-xl' : 'text-[1.6rem]'">[edumoreira]</span>
     
     @if((isNavbarExpanded() === true && screenWidth() <= 640) || screenWidth() > 640) {
         <nav class="sm:static absolute max-w-[calc(100%-1.5rem)] right-0 top-full sm:py-0 sm:px-0 py-6 px-8 sm:bg-transparent bg-neutral-950/95 
         sm:rounded-none rounded-bl-2xl sm:border-none border-l border-b border-neutral-700/50 overflow-hidden z-10" @slideNavbar>
-            <ul class="flex sm:items-center sm:gap-8 gap-6 flex-col sm:flex-row ">
-                <li><a class="sm:p-0 p-1" href="#"> {{ nav().menu.home }} </a></li>
-                <li><a class="sm:p-0 p-1" href="#"> {{ nav().menu.works }} </a></li>
-                <li><a class="sm:p-0 p-1" href="#"> {{ nav().menu.about }} </a></li>
+            <ul class="flex sm:items-center sm:gap-8 gap-6 flex-col sm:flex-row text-neutral-200 font-semibold">
+                <li><a class="sm:p-0 p-1 hover:text-white transition-colors" href="#"> {{ nav().menu.home }} </a></li>
+                <li><a class="sm:p-0 p-1 hover:text-white transition-colors" href="#"> {{ nav().menu.works }} </a></li>
+                <li><a class="sm:p-0 p-1 hover:text-white transition-colors" href="#"> {{ nav().menu.about }} </a></li>
                 <li>
                 <button custom-btn variant="outline"
                 class="px-4 py-2 rounded-xl sm:hidden block bg-neutral-950">
@@ -65,36 +68,25 @@ import { ButtonComponent } from "../../base/button.component";
     ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
     private languageService = inject(LanguageService);
     private language = inject(LANGUAGE_APPLICATION);
+    private documentListener = inject(DocumentListenerService);
+    // 
     protected nav = computed(() => this.language().navbar);
-    screenWidth = signal<number>(0);
+    screenWidth = computed(() => this.documentListener.screenSize$());
+    scrollFromTop = computed(() => this.documentListener.scrollFromTop$());
     isNavbarExpanded = signal(false);
     languageDropdownList = computed<DropdownListOptions[]>(() => [
         { name: 'Português', value: 'pt_br', isActive: this.languageService.$currentLanguage() === language_pt_br },
         { name: 'English', value: 'en_us', isActive: this.languageService.$currentLanguage() === language_en_us },
     ]);
 
-    ngOnInit() {
-        this.updateScreenSize();
-    }
-
     changeLanguage(language: 'pt_br' | 'en_us') {
         this.languageService.setLanguage(language);
-    }
-    
-    updateScreenSize() {
-        if(typeof window !== 'undefined') {
-            this.screenWidth.set(window.innerWidth);
-        }
     }
 
     toggleNavbar() {
         this.isNavbarExpanded.set(!this.isNavbarExpanded());
-    }
-    @HostListener('window:resize', [])
-    onResize() {
-        this.updateScreenSize();
     }
 }

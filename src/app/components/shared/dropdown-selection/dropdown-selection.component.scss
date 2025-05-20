@@ -14,7 +14,7 @@ $list-bg-hover: var(--muted-hover);
 $list-fg-hover: var(--muted-foreground-hover);
 //misc
 $radius: var(--radius);
-$useBorder: false;
+$useBorder: true;
 
 .dropdown {
     width: 100%;
@@ -26,7 +26,7 @@ $useBorder: false;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        @if $useBorder { border: 1px solid hsla($button-border); }
+        // @if $useBorder { border: 1px solid hsla($button-border); }
         // background-color: hsla($button-bg);
         // padding: .85em 1em;
         // border-radius: $radius;
@@ -76,6 +76,8 @@ $useBorder: false;
         padding: .4em;
         list-style: none;
         border-radius: $radius;
+        @if $useBorder { border: 1px solid hsla($list-border); }
+
         background-color: hsla($list-bg);
         z-index: 10;
         box-shadow: 0 5px 6px -2px rgba(0, 0, 0, 0.208);

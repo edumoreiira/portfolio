@@ -7,7 +7,7 @@ import { NgClass } from '@angular/common';
   imports: [NgClass],
   host: {
     tabIndex: '0',
-    class: 'md:max-w-[min(25rem,100%)] lg:max-w-[min(27rem,100%)] md:w-auto w-full flex flex-col py-4 px-6 rounded-2xl border text-neutral-200 cursor-pointer hover:bg-neutral-600/5 hover:border-neutral-700 transition-all duration-200 overflow-hidden'
+    class: 'md:max-w-[min(25rem,100%)] lg:max-w-[min(27rem,100%)] md:w-auto w-full flex flex-col py-4 px-6 rounded-2xl border text-neutral-200 cursor-pointer hover:border-neutral-600 transition-all duration-200 overflow-hidden'
   },
   template: `
     <div class="flex items-center justify-between gap-2 xs:gap-18 lg:gap-22">
@@ -56,6 +56,6 @@ export class TagComponent {
 
   @HostBinding('class')
   get hostClasses() {
-    return this.opened() ? 'border-neutral-600' : 'border-neutral-800';
+    return this.opened() ? 'border-neutral-700 bg-neutral-600/5' : 'border-neutral-800';
   }
 }

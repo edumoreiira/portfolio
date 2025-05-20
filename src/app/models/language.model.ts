@@ -40,7 +40,7 @@ export const language_pt_br: LanguageApllication = {
     },
     main: {
         misc: "Desenvolvedor Angular",
-        title: ["Olá, me chamo", "Eduardo", "Sou", "Desenvolvedor", "e", "Designer" ],
+        title: ["Olá, me chamo", "Eduardo", "sou", "Desenvolvedor", "e", "Designer" ],
         description: "Desenvolvo sites modernos, rápidos e com design de impacto. Transformo ideias em páginas atraentes, funcionais e feitas para valorizar seu negócio. Se você precisa de uma landing page profissional, posso te ajudar a destacar sua marca na internet.",
         button1: "Ver trabalhos",
         button2: "Sobre Mim",
