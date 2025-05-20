@@ -7,10 +7,11 @@ import { SitePreviewerService } from '../../services/site-previewer.service';
 import { TagComponent } from "../../components/shared/tag/tag.component";
 import { TechComponent } from "../../components/shared/tech/tech.component";
 import { AllTechsComponent } from "../../components/layout/all-techs/all-techs.component";
+import { FooterComponent } from '../../components/layout/footer/footer.component';
 
 @Component({
   selector: 'app-home',
-  imports: [ButtonComponent, SitePreviewerComponent, AccordionComponent, TagComponent, AllTechsComponent],
+  imports: [ButtonComponent, SitePreviewerComponent, AccordionComponent, TagComponent, AllTechsComponent, FooterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -20,12 +20,13 @@
 
             <div class="flex items-center sm:gap-8 gap-4">
                 <button custom-btn variant="contained"
-                class="min-w-[9rem] py-2 px-4 rounded-xl font-semibold
+                class="min-w-[10rem] py-2 px-4 rounded-xl font-semibold flex items-center gap-2
                 ">
+                <i class="fi fi-sr-story-book flex"></i>
                     {{ lg().main.button1 }}
                 </button>
                 <button custom-btn variant="outline"
-                class="min-w-[9rem] py-2 px-4 rounded-xl">
+                class="min-w-[10rem] py-2 px-4 rounded-xl">
                     {{ lg().main.button2 }}
                 </button>
             </div>
@@ -109,7 +110,7 @@
 </section>
 
 <section>
-    <div class="page-container py-12 md:py-16">
+    <div class="page-container pt-12 md:pt-16 pb-24 md:pb-32">
         <div class="glow-fx flex w-full items-center gap-4 relative">
             <span class="h-[1px] flex-grow bg-gradient-to-r from-transparent via-neutral-100 to-neutral-100 opacity-5"></span>
             
@@ -122,7 +123,12 @@
             <p class="text-neutral-400 w-[min(32rem,80%)]">
                 Uni experiência em design com conhecimento em programação para criar páginas que chamam atenção, passam confiança e ajudam seu negócio a crescer. Bora dar vida ao seu site?
             </p>
-            <button custom-btn class="px-4 py-2 min-w-[8rem]">Vamos lá!</button>
+            <button custom-btn class="px-4 py-2 min-w-[8rem] flex items-center gap-2">
+                <i class="fi-sr-hand-horns flex"></i>
+                Vamos lá!
+            </button>
         </div>
     </div>
 </section>
+
+<footer app-footer></footer>
