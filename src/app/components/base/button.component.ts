@@ -12,10 +12,10 @@ export class ButtonComponent {
 
     private contained = 
     "bg-neutral-50 rounded-xl text-neutral-950 font-semibold shadow-[0_0_25px_2px] shadow-white/20 " +
-    "hover:bg-neutral-300 transition-colors"
+    "hover:bg-neutral-300 transition-all"
 
     private outline = "border border-neutral-800 rounded-xl text-neutral-50 " +
-    "hover:bg-neutral-800/15 hover:border-neutral-600 hover:text-white transition-colors"
+    "hover:bg-neutral-800/15 hover:border-neutral-600 hover:text-white transition-all"
 
     @HostBinding("class")
     get variantClasses() {
