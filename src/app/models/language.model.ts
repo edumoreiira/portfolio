@@ -26,6 +26,16 @@ export interface LanguageApllication {
     advantages: {
         title: string,
         items: { title: string, description: string }[];
+    },
+    techs: {
+        title: string;
+        year: string;
+        misc: string;
+    },
+    cta: {
+        title: string[];
+        description: string;
+        button: string;
     }
 }
 
@@ -94,6 +104,16 @@ export const language_pt_br: LanguageApllication = {
                 description: "O site é construído com técnicas de SEO que facilitam sua aparição nos resultados de busca, aumentando a visibilidade e atraindo mais visitantes de forma orgânica."
             }
         ]
+    },
+    techs: {
+        title: "Tecnologias que eu domino",
+        year: "2025",
+        misc: "Eduardo Moreira"
+    },
+    cta: {
+        title: ["Seu site nas mãos de quem tem o" , "molho", "do design" ],
+        description: "Uni experiência em design com conhecimento em programação para criar páginas que chamam atenção, passam confiança e ajudam seu negócio a crescer. Bora dar vida ao seu site?",
+        button: "Vamos lá!"
     }
 }
 
@@ -162,5 +182,17 @@ export const language_en_us: LanguageApllication = {
                 description: "The site is built with SEO techniques that make it easier to appear in search results, increasing visibility and attracting more visitors organically."
             }
         ]
+    },
+    techs: {
+        title: "Technologies I'm skilled at",
+        year: "2025",
+        misc: "Eduardo Moreira"
+    },
+    cta: {
+        title: ["Your site with a dash of design", "sauce", "expertise" ],
+        description: "I combine design experience with programming skills to create pages that grab attention, build trust, and help your business grow. Ready to bring your site to life?",
+        button: "Let's go!"
     }
+    
+
 }

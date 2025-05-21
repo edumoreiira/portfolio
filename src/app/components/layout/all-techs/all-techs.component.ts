@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { TechComponent } from '../../shared/tech/tech.component';
 import { NgClass } from '@angular/common';
+import { LANGUAGE_APPLICATION } from '../../../tokens/language.tokens';
 
 @Component({
   selector: 'app-all-techs',
@@ -10,6 +11,8 @@ import { NgClass } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AllTechsComponent {
+  lg = inject(LANGUAGE_APPLICATION);
+  // 
   opened = signal(false);
   toggle() {
     this.opened.set(!this.opened());

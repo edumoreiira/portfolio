@@ -1,3 +1,7 @@
+@let main = lg().main;
+@let works = lg().works;
+@let advantages = lg().advantages;
+@let cta = lg().cta;
 <main class="relative">
     <img src="./patterns/binary-code.jpg"
     class="saturate-0 halftone-mask absolute mix-blend-exclusion invert w-full h-[calc(100%+5rem)] object-cover -z-10">
@@ -5,16 +9,16 @@
         <div class="flex sm:gap-6 gap-4 flex-col items-center justify-center">
             <div class="flex flex-col items-center text-center">
                 <span class="flex flex-col items-center gap-2 sm:mb-0 mb-2 sm:font-medium">
-                    {{ lg().main.misc }}
+                    {{ main.misc }}
                     <span class="inline-block h-[1px] w-[3rem] bg-neutral-800"></span> 
                 </span>
                 <h1 class="sm:text-6xl text-4xl w-[min(60rem,100%)] leading-tight">
-                    {{ lg().main.title[0] }} <b class="font-semibold"> {{ lg().main.title[1] }} </b> {{ lg().main.title[2] }} <b class="font-semibold">{{ lg().main.title[3] }}</b> {{ lg().main.title[4] }} <b class="font-semibold">{{ lg().main.title[5] }}</b>
+                    {{ main.title[0] }} <b class="font-semibold"> {{ main.title[1] }} </b> {{ main.title[2] }} <b class="font-semibold">{{ main.title[3] }}</b> {{ main.title[4] }} <b class="font-semibold">{{ main.title[5] }}</b>
                 </h1>
             </div>
             <div class="w-[min(33rem,85%)] mx-auto">
                 <p class="text text-neutral-400 text-center">
-                    {{ lg().main.description }}
+                    {{ main.description }}
                 </p>
             </div>
 
@@ -23,11 +27,11 @@
                 class="min-w-[10rem] py-2 px-4 rounded-xl font-semibold flex items-center gap-2
                 ">
                 <i class="fi fi-sr-story-book flex"></i>
-                    {{ lg().main.button1 }}
+                    {{ main.button1 }}
                 </button>
                 <button custom-btn variant="outline"
                 class="min-w-[10rem] py-2 px-4 rounded-xl">
-                    {{ lg().main.button2 }}
+                    {{ main.button2 }}
                 </button>
             </div>
 
@@ -37,12 +41,12 @@
 </main>
 
 <section>
-    <div class="page-container grid sm:grid-cols-2 grid-cols-1 gap-4 py-12 md:py-20 grid-rows-1 lg:h-[36rem] sm:h-[38rem] h-auto">
+    <div class="page-container grid sm:grid-cols-2 grid-cols-1 gap-4 py-12 md:py-20 grid-rows-1 lg:h-[38rem] sm:h-[41rem] h-auto">
         <div class="flex flex-col gap-4 justify-between">
             <div>
-                <h1 class="text-2xl font-semibold mb-2">{{ lg().works.title }}</h1>
+                <h1 class="text-2xl font-semibold mb-2">{{ works.title }}</h1>
                 <p class="text-neutral-400">
-                    {{ lg().works.description }}
+                    {{ works.description }}
                 </p>
             </div>
             @for (item of websites(); track $index) {
@@ -71,36 +75,36 @@
 
 <section>
     <div class="page-container py-12 md:py-20">
-        <h1 class="text-3xl sm:text-4xl font-semibold mb-6 sm:mb-8 text-center">{{ lg().advantages.title }}</h1>
+        <h1 class="text-3xl sm:text-4xl font-semibold mb-6 sm:mb-8 text-center">{{ advantages.title }}</h1>
         <div class="flex flex-col gap-4">
             <div class="flex items-start justify-center gap-4 md:flex-row flex-col">
                 <app-tag class="bg-gradient-to-bl from-0% to-40% from-blue-800/5 to-transparent"
-                    [title]="lg().advantages.items[0].title"
-                    [description]="lg().advantages.items[0].description"
+                    [title]="advantages.items[0].title"
+                    [description]="advantages.items[0].description"
                     icon="fi-rr-time-fast"
                 />
                 <app-tag class="bg-gradient-to-bl from-0% to-40% from-violet-800/5 to-transparent"
-                    [title]="lg().advantages.items[1].title"
-                    [description]="lg().advantages.items[1].description"
+                    [title]="advantages.items[1].title"
+                    [description]="advantages.items[1].description"
                     icon="fi-rr-palette"
                 />
             </div>
             <div class="flex items-start justify-center gap-4 md:flex-row flex-col">
                 <app-tag class="bg-gradient-to-bl from-0% to-40% from-sky-800/5 to-transparent"
-                    [title]="lg().advantages.items[2].title"
-                    [description]="lg().advantages.items[2].description"
+                    [title]="advantages.items[2].title"
+                    [description]="advantages.items[2].description"
                     icon="fi-rr-laptop-mobile"
                 />
                 <app-tag class="bg-gradient-to-bl from-0% to-40% from-lime-800/5 to-transparent"
-                    [title]="lg().advantages.items[3].title"
-                    [description]="lg().advantages.items[3].description"
+                    [title]="advantages.items[3].title"
+                    [description]="advantages.items[3].description"
                     icon="fi-rr-bubble-discussion"
                 />
             </div>
             <div class="flex items-start justify-center gap-4 md:flex-row flex-col">
                 <app-tag class="bg-gradient-to-bl from-0% to-40% from-red-800/5 to-transparent"
-                    [title]="lg().advantages.items[4].title"
-                    [description]="lg().advantages.items[4].description"
+                    [title]="advantages.items[4].title"
+                    [description]="advantages.items[4].description"
                     icon="fi-rr-discover"
                 />
             </div>
@@ -118,13 +122,13 @@
             <span class="h-[1px] flex-grow bg-gradient-to-l from-transparent via-neutral-100 to-neutral-100 opacity-5"></span>
         </div>
         <div class="text-center flex flex-col items-center gap-4">
-            <h1 class="text-3xl font-semibold text-center">Seu site nas mãos de quem tem o <i class="text-yellow-500 font-normal">molho</i> do design</h1>
+            <h1 class="text-3xl font-semibold text-center">{{ cta.title[0] }} <i class="text-yellow-500 font-normal">{{ cta.title[1] }}</i> {{ cta.title[2] }}</h1>
             <p class="text-neutral-400 w-[min(32rem,80%)]">
-                Uni experiência em design com conhecimento em programação para criar páginas que chamam atenção, passam confiança e ajudam seu negócio a crescer. Bora dar vida ao seu site?
+                {{ cta.description }}
             </p>
             <button custom-btn class="px-4 py-2 min-w-[8rem] flex items-center gap-2">
                 <i class="fi-sr-hand-horns flex"></i>
-                Vamos lá!
+                {{ cta.button }}
             </button>
         </div>
     </div>

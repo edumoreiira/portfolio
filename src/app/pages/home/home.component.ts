@@ -5,7 +5,6 @@ import { SitePreviewerComponent, WebSites } from "../../components/shared/site-p
 import { AccordionComponent } from "../../components/shared/accordion/accordion.component";
 import { SitePreviewerService } from '../../services/site-previewer.service';
 import { TagComponent } from "../../components/shared/tag/tag.component";
-import { TechComponent } from "../../components/shared/tech/tech.component";
 import { AllTechsComponent } from "../../components/layout/all-techs/all-techs.component";
 import { FooterComponent } from '../../components/layout/footer/footer.component';
 
