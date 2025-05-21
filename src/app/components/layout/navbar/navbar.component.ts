@@ -16,7 +16,7 @@ import { NgClass } from "@angular/common";
     },
     template: `
     <span class="font-medium font-[Kanit] cursor-default transition-all"
-    [ngClass]="scrollFromTop() > 100 ? 'text-2xl sm:text-xl' : 'text-[1.6rem]'">[edumoreira]</span>
+    [ngClass]="scrollFromTop() > 100 ? 'text-2xl lg:text-xl' : 'text-[1.6rem]'">[edumoreira]</span>
     
     @if((isNavbarExpanded() === true && screenWidth() <= 640) || screenWidth() > 640) {
         <nav class="sm:static absolute max-w-[calc(100%-1.5rem)] right-0 top-full sm:py-0 sm:px-0 py-6 px-8 sm:bg-transparent bg-neutral-950/95 
