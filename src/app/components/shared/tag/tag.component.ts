@@ -23,9 +23,8 @@ import { NgClass } from '@angular/common';
       <p class="text-neutral-400 text-sm" @slide>{{ description() }}</p>
     }
   `,
-  styleUrl: './tag.component.scss',
   animations: [
-    createAnimation('slide', { animateX: true, animateY: true, duration: '300ms',opacity: '0' }),
+    createAnimation('slide', { animateX: true, animateY: true, duration: '350ms',opacity: '0' }),
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
