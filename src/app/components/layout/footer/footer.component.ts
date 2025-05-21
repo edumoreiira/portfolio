@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SocialIconComponent } from "../../shared/social-icon/social-icon.component";
+import { LANGUAGE_APPLICATION } from '../../../tokens/language.tokens';
 
 @Component({
   selector: 'footer[app-footer]',
@@ -8,5 +9,5 @@ import { SocialIconComponent } from "../../shared/social-icon/social-icon.compon
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-
+  protected lg = inject(LANGUAGE_APPLICATION);
 }

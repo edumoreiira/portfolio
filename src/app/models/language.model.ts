@@ -36,6 +36,9 @@ export interface LanguageApllication {
         title: string[];
         description: string;
         button: string;
+    },
+    footer: {
+        copyright: string;
     }
 }
 
@@ -114,6 +117,9 @@ export const language_pt_br: LanguageApllication = {
         title: ["Seu site nas mãos de quem tem o" , "molho", "do design" ],
         description: "Uni experiência em design com conhecimento em programação para criar páginas que chamam atenção, passam confiança e ajudam seu negócio a crescer. Bora dar vida ao seu site?",
         button: "Vamos lá!"
+    },
+    footer: {
+        copyright: "Desenvolvido com carinho e café por mim © 2025"
     }
 }
 
@@ -192,6 +198,9 @@ export const language_en_us: LanguageApllication = {
         title: ["Your site with a dash of design", "sauce", "expertise" ],
         description: "I combine design experience with programming skills to create pages that grab attention, build trust, and help your business grow. Ready to bring your site to life?",
         button: "Let's go!"
+    },
+    footer: {
+        copyright: "Developed with love and coffee by me © 2025"
     }
     
 
