@@ -54,7 +54,7 @@ export const language_pt_br: LanguageApllication = {
     main: {
         misc: "Desenvolvedor Angular",
         title: ["Olá, me chamo", "Eduardo", "sou", "Desenvolvedor", "e", "Designer" ],
-        description: "Desenvolvo sites modernos, rápidos e com design de impacto. Transformo ideias em páginas atraentes, funcionais e feitas para valorizar seu negócio. Se você precisa de uma landing page profissional, posso te ajudar a destacar sua marca na internet.",
+        description: "Crio sites modernos, rápidos e com design de impacto. Transformo ideias em páginas que valorizam seu negócio e destacam sua marca na internet.",
         button1: "Ver trabalhos",
         button2: "Sobre Mim",
     },
@@ -135,7 +135,7 @@ export const language_en_us: LanguageApllication = {
     main: {
         misc: "Angular Developer",
         title: ["Hello, my name is", "Eduardo", "I'm", "Developer", "and", "Designer"],
-        description: "I build modern, fast websites with clean, impactful design. I turn ideas into attractive, functional pages crafted to highlight and grow your business. If you need a professional landing page, I can help your brand stand out online with confidence.",
+        description: "Creating modern, fast websites with impactful design. I turn ideas into pages that add value to your business and highlight your brand on the internet.",
         button1: "See works",
         button2: "About me",
     },

@@ -16,7 +16,7 @@ import { NgClass } from "@angular/common";
     },
     template: `
     <span class="font-medium font-[Kanit] cursor-default transition-all"
-    [ngClass]="scrollFromTop() > 120 ? 'text-xl' : 'text-[1.6rem]'">[edumoreira]</span>
+    [ngClass]="scrollFromTop() > 100 ? 'text-2xl sm:text-xl' : 'text-[1.6rem]'">[edumoreira]</span>
     
     @if((isNavbarExpanded() === true && screenWidth() <= 640) || screenWidth() > 640) {
         <nav class="sm:static absolute max-w-[calc(100%-1.5rem)] right-0 top-full sm:py-0 sm:px-0 py-6 px-8 sm:bg-transparent bg-neutral-950/95 
@@ -35,21 +35,21 @@ import { NgClass } from "@angular/common";
         </nav>
     }
 
-    <div class="flex items-center gap-4">
+    <div class="flex items-center gap-6 sm:gap-4">
         <dropdown-selection 
         [items]="languageDropdownList()" 
         dropdownId="languageList"
         class="text-[.95rem]"
         (clickedItem)="changeLanguage($event.value)"
         >
-            <i class="fi fi-rr-language-exchange flex text-2xl hover:text-neutral-300 transition-colors"></i>
+            <i class="fi fi-rr-language-exchange flex text-3xl sm:text-2xl hover:text-neutral-300 transition-colors"></i>
         </dropdown-selection>
         <button custom-btn variant="outline" class="px-4 py-2 hidden sm:block">
             {{ nav().contact }}
         </button>
 
         <!-- hamburger button -->
-        <button custom-btn variant="outline" class="sm:hidden flex items-center justify-center h-[2.4rem] w-[2.4rem] flex-col rounded-xl"
+        <button custom-btn variant="outline" class="sm:hidden flex items-center justify-center text-xl h-[3rem] w-[3rem] flex-col rounded-xl"
         [attr.aria-expanded]="isNavbarExpanded()"
         aria-label="Toggle navigation"
         (click)="toggleNavbar()"
