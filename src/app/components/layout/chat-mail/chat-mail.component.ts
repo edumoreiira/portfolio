@@ -1,7 +1,9 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, effect, ElementRef, HostBinding, inject, signal, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, computed, effect, ElementRef, HostBinding, inject, OnInit, signal, ViewChild } from '@angular/core';
 import { ButtonComponent } from '../../base/button.component';
 import { NgClass } from '@angular/common';
 import { DocumentListenerService } from '../../../services/document-listener.service';
+import { LANGUAGE_APPLICATION } from '../../../tokens/language.tokens';
+import { language_en_us, language_pt_br } from '../../../models/language.model';
 
 type ContactChannel = 'whatsapp' | 'email';
 @Component({
@@ -13,24 +15,37 @@ type ContactChannel = 'whatsapp' | 'email';
   templateUrl: './chat-mail.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ChatMailComponent implements AfterViewInit {
-  documentListener = inject(DocumentListenerService);
+export class ChatMailComponent implements AfterViewInit, OnInit {
+  private documentListener = inject(DocumentListenerService);
+  lg = inject(LANGUAGE_APPLICATION);
   // 
   type = signal<ContactChannel>('email');
-  message = signal('Gostaria de fazer um site para o meu negócio. Poderia me passar mais informações?');
+  message = signal(' ');
+  // isTouched = false;
+  isTouched = computed(() => {
+    const us_message = language_en_us.contact.chat.initial_message;
+    const br_message = language_pt_br.contact.chat.initial_message;
+    return this.message() !== us_message && this.message() !== br_message;
+  });
   @ViewChild('textarea') textarea!: ElementRef<HTMLTextAreaElement>;
 
   ngAfterViewInit(): void {
-    if (this.textarea) {
-      const textAreaElement = this.textarea.nativeElement;
-      this.resizeTextArea(textAreaElement);
-    }
+    this.resizeTextArea();
+  }
+
+  ngOnInit(): void {
+    this.message.set(this.lg().contact.chat.initial_message); // set initial message
   }
 
   constructor() {
     effect(() => {
-      const detectScreenChange = this.documentListener.screenSize$();
-      this.resizeTextArea(this.textarea.nativeElement);
+      const detectScreenChange = this.documentListener.screenSize$(); // trigger effect on screen size change
+      this.resizeTextArea();
+    })
+    effect(() => {
+      if (!this.isTouched()) {
+        this.message.set(this.lg().contact.chat.initial_message); // set translated initial message if textarea is not touched
+      }
     })
   }
 
@@ -56,12 +71,16 @@ export class ChatMailComponent implements AfterViewInit {
   onInput(event: Event){
     const textArea = event.target as HTMLTextAreaElement;
     this.setMessage(textArea.value);
-    this.resizeTextArea(textArea);
+    this.resizeTextArea();
   }
 
-  private resizeTextArea(textarea: HTMLTextAreaElement): void {
-    textarea.style.height = 'auto';
-    textarea.style.height = textarea.scrollHeight + 'px';
+
+  private resizeTextArea(): void {
+    if (this.textarea) {
+      const textAreaElement = this.textarea.nativeElement;
+      textAreaElement.style.height = 'auto';
+      textAreaElement.style.height = textAreaElement.scrollHeight + 'px';
+    }
   }
 
   surfaceClick() {

@@ -32,6 +32,15 @@ export interface LanguageApllication {
         year: string;
         misc: string;
     },
+    contact: {
+        title: string;
+        description: string;
+        chat: {
+            initial_message: string;
+            placeholder: string;
+            button: string;
+        }
+    }
     cta: {
         title: string[];
         description: string;
@@ -107,6 +116,15 @@ export const language_pt_br: LanguageApllication = {
                 description: "O site é construído com técnicas de SEO que facilitam sua aparição nos resultados de busca, aumentando a visibilidade e atraindo mais visitantes de forma orgânica."
             }
         ]
+    },
+    contact: {
+        title: "Vamos conversar sobre seu site?",
+        description: "Escreva sua ideia, objetivos e o que espera da sua nova página. Vou verificar e responder rapidinho!",
+        chat: {
+            initial_message: "Gostaria de fazer um site para o meu negócio. Pode me explicar os próximos passos?",
+            placeholder: "Preciso de um site profissional, você pode me ajudar?",
+            button: "Enviar"
+        }
     },
     techs: {
         title: "Tecnologias que eu domino",
@@ -188,6 +206,15 @@ export const language_en_us: LanguageApllication = {
                 description: "The site is built with SEO techniques that make it easier to appear in search results, increasing visibility and attracting more visitors organically."
             }
         ]
+    },
+    contact: {
+        title: "Let's talk about your website?",
+        description: "Write down your idea, goals, and what you expect from your new page. I'll check it out and respond quickly!",
+        chat: {
+            initial_message: "I would like to make a website for my business. Can you explain the next steps?",
+            placeholder: "I need a professional website, can you help me?",
+            button: "Send"
+        }
     },
     techs: {
         title: "Technologies I'm skilled at",

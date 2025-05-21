@@ -1,6 +1,7 @@
+@let chat = lg().contact.chat;
 <!-- <div class="bg-neutral-900 rounded-2xl w-full min-h-fit p-4 outline-1 outline-transparent
 focus-within:outline-1 focus-within:outline-neutral-600 transition-colors relative"> -->
-    <textarea #textarea name="contactme" id="contactme" placeholder="Preciso de um site profissional, você faz?" 
+    <textarea #textarea name="contactme" id="contactme" [placeholder]="chat.placeholder" 
     [value]="message()"
     (input)="onInput($event)"
     class="outline-none resize-none bg-transparent min-h-[4rem] w-full font-semibold
@@ -33,7 +34,7 @@ focus-within:outline-1 focus-within:outline-neutral-600 transition-colors relati
          disabled:opacity-50 disabled:pointer-events-none"
          (click)="sendMessage()" [disabled]="!message()">
             <i class="fi fi-sr-paper-plane flex"></i>
-            Enviar {{ type() === 'whatsapp' ? 'WhatsApp' : 'Email' }}
+            {{ chat.button }} {{ type() === 'whatsapp' ? 'WhatsApp' : 'Email' }}
         </button>
     </div>
 <!-- </div> -->
