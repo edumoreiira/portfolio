@@ -58,7 +58,7 @@ export class ChatMailComponent implements AfterViewInit, OnInit {
   }
 
   sendMessage() {
-    const emailSubject = encodeURIComponent('Olá, quero fazer o orçamento de um site');
+    const emailSubject = encodeURIComponent(this.lg().contact.email_subject);
     const encodedMessage = encodeURIComponent(this.message());
     if (this.type() === 'whatsapp') {
       window.open(`https://api.whatsapp.com/send?phone=5561996111423&text=${ encodedMessage }`);

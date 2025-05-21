@@ -40,6 +40,7 @@ export interface LanguageApllication {
             placeholder: string;
             button: string;
         }
+        email_subject: string;
     }
     cta: {
         title: string[];
@@ -124,7 +125,8 @@ export const language_pt_br: LanguageApllication = {
             initial_message: "Gostaria de fazer um site para o meu negócio. Pode me explicar os próximos passos?",
             placeholder: "Preciso de um site profissional, você pode me ajudar?",
             button: "Enviar"
-        }
+        },
+        email_subject: "Olá, quero fazer o orçamento de um site"
     },
     techs: {
         title: "Tecnologias que eu domino",
@@ -214,7 +216,8 @@ export const language_en_us: LanguageApllication = {
             initial_message: "I would like to make a website for my business. Can you explain the next steps?",
             placeholder: "I need a professional website, can you help me?",
             button: "Send"
-        }
+        },
+        email_subject: "Hello, I want to get a website quote"
     },
     techs: {
         title: "Technologies I'm skilled at",
