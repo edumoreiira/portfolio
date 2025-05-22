@@ -40,16 +40,16 @@ export class HomeComponent {
       websiteUrl: "https://ysociety-eth.github.io/web3-wallet-manager/"
     },
     {
-      technologies: ["angular", "html", "css", "js"],
-      title: "Experience Life",
+      technologies: ["html", "css", "js"],
+      title: "e-art",
       description: this.lg().works.accordions[1].description,
       button: this.lg().works.accordions[1].button,
-      imgUrl: "./website-preview/experience-life.jpeg",
-      websiteUrl: "https://edumoreiira.github.io/experience-life/"
+      imgUrl: "./website-preview/e-art.jpeg",
+      websiteUrl: "https://edumoreiira.github.io/e-art/"
     },
     {
       technologies: ["angular", "tailwind", "html", "css", "js"],
-      title: "Aju-Films",
+      title: "Aju Films",
       description: this.lg().works.accordions[2].description,
       button: this.lg().works.accordions[2].button,
       imgUrl: "./website-preview/aju-films.jpeg",

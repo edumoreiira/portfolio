@@ -74,17 +74,17 @@ export const language_pt_br: LanguageApllication = {
         accordions: [
             {
                 title: "Bera Pools",
-                description: "Landing page desenvolvida para Bera Pools, um projeto de portfólio e gerenciamento de carteiras Web3 na rede Berachain.",
+                description: "Website oficial desenvolvido para Bera Pools, um projeto de portfólio e gerenciamento de carteiras Web3 na rede Berachain.",
                 button: "Visitar Website"
             },
             {
-                title: "Experience Life",
-                description: "Experience-Life foi um site desenvolvido para uma comunidade online de GTA San Andreas, conta com um sistema de login, doações e painel de usuário.",
+                title: "e-art",
+                description: "Website criado para e-art, uma vitrine digital pensado para a exposição e apreciação de obras artísticas no ambiente online.",
                 button: "Visitar Website"
             },
             {
                 title: "Aju Films",
-                description: "Website desenvolvido para a Aju Films, empresa de aplicação de película residencial.",
+                description: "Landing Page desenvolvida para a Aju Films, empresa de aplicação de película residencial.",
                 button: "Visitar Website"
             }
         ],
@@ -165,17 +165,17 @@ export const language_en_us: LanguageApllication = {
         accordions: [
             {
                 title: "Bera Pools",
-                description: "Landing page developed for Bera Pools, a portfolio and Web3 wallet management project on the Berachain network.",
+                description: "Oficial website developed for Bera Pools, a portfolio and Web3 wallet management project on the Berachain network.",
                 button: "Visit Website"
             },
             {
-                title: "Experience Life",
-                description: "Experience-Life was a website developed for an online GTA San Andreas community, featuring a login system, donations, and user panel.",
+                title: "e-art",
+                description: "Website created for e-art, a digital showcase designed for the exhibition and appreciation of artistic works in the online environment.",
                 button: "Visit Website"
             },
             {
                 title: "Aju Films",
-                description: "Website developed for Aju Films, a residential film application company.",
+                description: "Landing page developed for Aju Films, a residential film application company.",
                 button: "Visit Website"
             }
         ],
