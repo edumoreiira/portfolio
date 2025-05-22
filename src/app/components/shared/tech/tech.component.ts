@@ -4,15 +4,16 @@ import { ChangeDetectionStrategy, Component, HostListener, input, signal } from 
 @Component({
     selector: 'app-tech',
     host: {
-        class: 'flex items-center justify-center p-2 rounded-2xl border border-neutral-800 transition-all group relative overflow-hidden'
+        class: 'flex items-center justify-center p-2 rounded-2xl border border-neutral-800 transition-all group relative overflow-hidden',
+        tabindex: '0'
     },
     template: `
     <span class="h-[28px] xs:h-[35px] sm:h-[45px] aspect-square transition-colors"
     style="mask: url('{{ iconUrl() }}') no-repeat center; mask-size: contain;"
     [ngStyle]="{ 'background-color': hovered() ?  hoveredColor() : 'hsla(0, 0%, 100%, 0.5)'  }"></span>
     <div class="absolute inset-[0] bg-neutral-600/5 backdrop-blur-xs opacity-0 
-    group-hover:opacity-100 transition-all duration-300 ease-out flex justify-center items-center">
-        <span class="scale-50 group-hover:scale-100 transition-transform cursor-default" aria-hidden="true">{{ title() }}</span>
+    group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100 transition-all duration-300 ease-out flex justify-center items-center">
+        <span class="scale-50 group-hover:scale-100 group-focus:scale-100 group-active:scale-100 transition-transform cursor-default">{{ title() }}</span>
     </div>
     `,
     imports: [NgStyle],
