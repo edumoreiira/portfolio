@@ -8,12 +8,18 @@ import { TagComponent } from "../../components/shared/tag/tag.component";
 import { AllTechsComponent } from "../../components/layout/all-techs/all-techs.component";
 import { FooterComponent } from '../../components/layout/footer/footer.component';
 import { ChatMailComponent } from "../../components/layout/chat-mail/chat-mail.component";
+import { createAnimation } from '../../animations/default-transitions.animations';
+import { IntersectionObserverDirective } from '../../directives/intersection-observer.directive';
 
 @Component({
   selector: 'app-home',
-  imports: [ButtonComponent, SitePreviewerComponent, AccordionComponent, TagComponent, AllTechsComponent, FooterComponent, ChatMailComponent],
+  imports: [ButtonComponent, SitePreviewerComponent, AccordionComponent,
+    TagComponent, AllTechsComponent, FooterComponent, ChatMailComponent, IntersectionObserverDirective],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
+  animations: [
+    createAnimation('fadeInUp', { transform: 'translateY(3rem)', duration: '700ms' })
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent {

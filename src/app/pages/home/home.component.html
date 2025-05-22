@@ -7,7 +7,7 @@
     <img src="./patterns/binary-code.jpg"
     class="saturate-0 halftone-mask absolute mix-blend-exclusion invert w-full h-[calc(100%+5rem)] object-cover -z-10">
     <section class="page-container pt-18 md:pt-24 pb-12 md:pb-20">
-        <div class="flex gap-6 flex-col items-center justify-center">
+        <div class="flex gap-6 flex-col items-center justify-center" InterObs [intersectChild]="true">
             <div class="flex flex-col items-center text-center">
                 <span class="flex flex-col items-center gap-2 sm:mb-0 mb-2 sm:font-medium">
                     {{ main.misc }}
@@ -17,13 +17,13 @@
                     {{ main.title[0] }} <b class="font-semibold"> {{ main.title[1] }} </b> {{ main.title[2] }} <b class="font-semibold">{{ main.title[3] }}</b> {{ main.title[4] }} <b class="font-semibold">{{ main.title[5] }}</b>
                 </h1>
             </div>
-            <div class="w-[min(33rem,100%)] mx-auto">
+            <div class="w-[min(33rem,100%)] mx-auto delay-2">
                 <p class="text-xl text-neutral-400 text-center">
                     {{ main.description }}
                 </p>
             </div>
 
-            <div class="flex items-center sm:gap-8 gap-6">
+            <div class="flex items-center sm:gap-8 gap-6 delay-4">
                 <button custom-btn variant="contained"
                 class="text-lg min-w-[11rem] py-2 px-4 rounded-xl font-semibold flex items-center justify-center gap-2"
                 (click)="scrollTo('contact')">
@@ -42,9 +42,10 @@
     </section>
 </main>
 
-<section id="my-works">
-    <div class="page-container grid sm:grid-cols-2 grid-cols-1 gap-4 py-12 md:py-20 grid-rows-1 lg:h-[39rem] sm:h-[41rem] h-auto">
-        <div class="flex flex-col gap-4 justify-between">
+<section #myworks id="my-works">
+    <div class="page-container grid sm:grid-cols-2 grid-cols-1 gap-4 py-12 md:py-20 grid-rows-1 lg:h-[39rem] sm:h-[41rem] h-auto"
+    InterObs intersectChild="true">
+        <div class="flex flex-col gap-4 justify-between delay-2">
             <div>
                 <h1 class="text-3xl font-semibold mb-2">{{ works.title }}</h1>
                 <p class="text-neutral-400 text-lg">
@@ -63,104 +64,116 @@
                 </accordion>
             }
         </div>
-        <div class="aspect-video sm:aspect-auto ">
+        <div class="aspect-video sm:aspect-auto delay-4">
             <app-site-previewer [websites]="websites()"/>
         </div>
     </div>
 </section>
 
-<section id="contact">
-    <div class="page-container py-12 md:py-20">
-        <div class="grid sm:grid-cols-2 grid-cols-1 sm:gap-4 md:gap-12 rounded-3xl border border-neutral-800">
-            <div class="flex flex-col justify-between gap-4 p-6 sm:p-8 sm:pr-0">
-                <div>
-                    <h1 class="text-3xl sm:text-[1.8rem] font-semibold mb-4">{{ contact.title }}</h1>
-                    <p class="text-lg text-neutral-300">{{ contact.description }}</p>
-                </div>
-                <div class="flex flex-col md:flex-row gap-2 md:gap-4">
-                    <div class="flex items-center gap-2">
-                        <i class="fi fi-rr-at flex"></i>
-                        <p class="text-neutral-400 text-sm lg:text-base">edumoreira.dev&#64;gmail.com</p>
+@defer {
+    <section id="contact">
+        <div class="page-container py-12 md:py-20">
+            <div class="grid sm:grid-cols-2 grid-cols-1 sm:gap-4 md:gap-12 rounded-3xl border border-neutral-800"
+            InterObs intersectChild="true" selfIntersect="true">
+                <div class="flex flex-col justify-between gap-4 p-6 sm:p-8 sm:pr-0 delay-1">
+                    <div>
+                        <h1 class="text-3xl sm:text-[1.8rem] font-semibold mb-4">{{ contact.title }}</h1>
+                        <p class="text-lg text-neutral-300">{{ contact.description }}</p>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <i class="fi fi-brands-whatsapp flex"></i>
-                        <p class="text-neutral-400 text-sm lg:text-base">(61) 99611-1423</p>
+                    <div class="flex flex-col md:flex-row gap-2 md:gap-4">
+                        <div class="flex items-center gap-2">
+                            <i class="fi fi-rr-at flex"></i>
+                            <p class="text-neutral-400 text-sm lg:text-base">edumoreira.dev&#64;gmail.com</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fi fi-brands-whatsapp flex"></i>
+                            <p class="text-neutral-400 text-sm lg:text-base">(61) 99611-1423</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="p-3">
-                <app-chat-mail class="h-full lg:h-[13rem] max-h-[14rem] sm:max-h-[19rem] lg:max-h-full"/>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="techs">
-    <div class="page-container py-12 md:py-20">
-        <app-all-techs></app-all-techs>
-    </div>
-</section>
-
-<section>
-    <div class="page-container py-12 md:py-20">
-        <h1 class="text-3xl sm:text-4xl font-semibold mb-6 sm:mb-8 text-center">{{ advantages.title }}</h1>
-        <div class="flex flex-col gap-4">
-            <div class="flex items-start justify-center gap-4 md:flex-row flex-col">
-                <app-tag class="bg-gradient-to-bl from-0% to-40% from-blue-800/5 to-transparent"
-                    [title]="advantages.items[0].title"
-                    [description]="advantages.items[0].description"
-                    icon="fi-rr-time-fast"
-                />
-                <app-tag class="bg-gradient-to-bl from-0% to-40% from-violet-800/5 to-transparent"
-                    [title]="advantages.items[1].title"
-                    [description]="advantages.items[1].description"
-                    icon="fi-rr-palette"
-                />
-            </div>
-            <div class="flex items-start justify-center gap-4 md:flex-row flex-col">
-                <app-tag class="bg-gradient-to-bl from-0% to-40% from-sky-800/5 to-transparent"
-                    [title]="advantages.items[2].title"
-                    [description]="advantages.items[2].description"
-                    icon="fi-rr-laptop-mobile"
-                />
-                <app-tag class="bg-gradient-to-bl from-0% to-40% from-lime-800/5 to-transparent"
-                    [title]="advantages.items[3].title"
-                    [description]="advantages.items[3].description"
-                    icon="fi-rr-bubble-discussion"
-                />
-            </div>
-            <div class="flex items-start justify-center gap-4 md:flex-row flex-col">
-                <app-tag class="bg-gradient-to-bl from-0% to-40% from-red-800/5 to-transparent"
-                    [title]="advantages.items[4].title"
-                    [description]="advantages.items[4].description"
-                    icon="fi-rr-discover"
-                />
+                <div class="p-3 delay-2">
+                    <app-chat-mail class="h-full lg:h-[13rem] max-h-[14rem] sm:max-h-[19rem] lg:max-h-full"/>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+} @placeholder { <section id="contact" class="py-12 md:py-20"></section> }
 
-<section>
-    <div class="page-container pt-12 md:pt-20 pb-24 md:pb-40">
-        <div class="glow-fx flex w-full items-center gap-4 relative">
-            <span class="h-[1px] flex-grow bg-gradient-to-r from-transparent via-neutral-100 to-neutral-100 opacity-5"></span>
-            
-            <i class="fi fi-tr-pen-swirl flex text-yellow-500 text-3xl text-primary p-4 rounded-full"></i>
-            
-            <span class="h-[1px] flex-grow bg-gradient-to-l from-transparent via-neutral-100 to-neutral-100 opacity-5"></span>
+@defer {
+    <section id="techs">
+        <div class="page-container py-12 md:py-20">
+            <app-all-techs InterObs intersectChild="true" obsClass="fadeIn"/>
         </div>
-        <div class="text-center flex flex-col items-center gap-4">
-            <h1 class="sm:text-4xl text-3xl font-semibold text-center">{{ cta.title[0] }} <i class="text-yellow-500 font-normal">{{ cta.title[1] }}</i> {{ cta.title[2] }}</h1>
-            <p class="text-lg text-neutral-400 w-[min(38rem,90%)]">
-                {{ cta.description }}
-            </p>
-            <button custom-btn class="text-lg px-6 py-2 min-w-[8rem] flex items-center gap-2"
-            (click)="scrollTo('contact')">
-                <i class="fi-sr-hand-horns flex"></i>
-                {{ cta.button }}
-            </button>
-        </div>
-    </div>
-</section>
+    </section>
+} @placeholder { <section id="techs" class="py-12 md:py-20"></section> }
 
-<footer app-footer></footer>
+@defer {
+    <section>
+        <div class="page-container py-12 md:py-20" >
+            <h1 class="text-3xl sm:text-4xl font-semibold mb-6 sm:mb-8 text-center"
+            InterObs>{{ advantages.title }}</h1>
+            <div class="flex flex-col gap-4"
+            InterObs intersectChild="true">
+                <div class="flex items-start justify-center gap-4 md:flex-row flex-col">
+                    <app-tag class="bg-gradient-to-bl from-0% to-40% from-blue-800/5 to-transparent"
+                        [title]="advantages.items[0].title"
+                        [description]="advantages.items[0].description"
+                        icon="fi-rr-time-fast" 
+                    />
+                    <app-tag class="bg-gradient-to-bl from-0% to-40% from-violet-800/5 to-transparent"
+                        [title]="advantages.items[1].title"
+                        [description]="advantages.items[1].description"
+                        icon="fi-rr-palette" 
+                    />
+                </div>
+                <div class="flex items-start justify-center gap-4 md:flex-row flex-col delay-2">
+                    <app-tag class="bg-gradient-to-bl from-0% to-40% from-sky-800/5 to-transparent"
+                        [title]="advantages.items[2].title"
+                        [description]="advantages.items[2].description"
+                        icon="fi-rr-laptop-mobile" 
+                    />
+                    <app-tag class="bg-gradient-to-bl from-0% to-40% from-lime-800/5 to-transparent"
+                        [title]="advantages.items[3].title"
+                        [description]="advantages.items[3].description"
+                        icon="fi-rr-bubble-discussion" 
+                    />
+                </div>
+                <div class="flex items-start justify-center gap-4 md:flex-row flex-col delay-4">
+                    <app-tag class="bg-gradient-to-bl from-0% to-40% from-red-800/5 to-transparent"
+                        [title]="advantages.items[4].title"
+                        [description]="advantages.items[4].description"
+                        icon="fi-rr-discover" 
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+} @placeholder () { <section class="py-12 md:py-20"></section> }
+
+@defer {
+    <section>
+        <div class="page-container pt-12 md:pt-20 pb-24 md:pb-40">
+            <div class="glow-fx flex w-full items-center gap-4 relative">
+                <span class="h-[1px] flex-grow bg-gradient-to-r from-transparent via-neutral-100 to-neutral-100 opacity-5"></span>
+                
+                <i class="fi fi-tr-pen-swirl flex text-yellow-500 text-3xl text-primary p-4 rounded-full" InterObs obsClass="fadeIn"></i>
+                
+                <span class="h-[1px] flex-grow bg-gradient-to-l from-transparent via-neutral-100 to-neutral-100 opacity-5"></span>
+            </div>
+            <div class="text-center flex flex-col items-center gap-4"
+            InterObs intersectChild="true">
+                <h1 class="sm:text-4xl text-3xl font-semibold text-center fadeUp">{{ cta.title[0] }} <i class="text-yellow-500 font-normal">{{ cta.title[1] }}</i> {{ cta.title[2] }}</h1>
+                <p class="text-lg text-neutral-400 w-[min(38rem,90%)] delay-3">
+                    {{ cta.description }}
+                </p>
+                <button custom-btn class="text-lg px-6 py-2 min-w-[8rem] flex items-center gap-2 delay-5"
+                (click)="scrollTo('contact')">
+                    <i class="fi-sr-hand-horns flex"></i>
+                    {{ cta.button }}
+                </button>
+            </div>
+        </div>
+    </section>
+} @placeholder (minimum 900ms) { <section class="py-12 md:py-20"></section> }
+
+<footer app-footer InterObs intersectChild="true"></footer>
