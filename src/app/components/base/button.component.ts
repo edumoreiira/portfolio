@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, HostBinding, input } from "@angular/core";
 
 @Component({
-    selector: "button[custom-btn]",
+    selector: "button[custom-btn], a[custom-btn]",
     template: `
         <ng-content></ng-content>
     `,

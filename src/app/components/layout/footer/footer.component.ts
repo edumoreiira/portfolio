@@ -11,17 +11,17 @@ import { LANGUAGE_APPLICATION } from '../../../tokens/language.tokens';
   template: `
     <span class="text-3xl font-medium font-[Kanit] cursor-default">[edumoreira]</span>
     <ul class="flex items-center">
-        <li> <app-social-icon icon="flex fi fi-brands-instagram" /> </li>
+        <li> <app-social-icon icon="flex fi fi-brands-instagram" url="https://www.instagram.com/edumoreira.dev/"/> </li>
         <div class="h-px xs:w-[1.5rem] w-[1rem] bg-neutral-900"></div>
-        <li> <app-social-icon icon="flex fi fi-brands-behance" /> </li>
+        <li> <app-social-icon icon="flex fi fi-brands-behance" url="https://www.behance.net/eduumoreira" /> </li>
         <div class="h-px xs:w-[1.5rem] w-[1rem] bg-neutral-900"></div>
-        <li> <app-social-icon icon="flex fi fi-brands-twitter-alt-circle" /> </li>
+        <li> <app-social-icon icon="flex fi fi-brands-twitter-alt-circle" url="https://x.com/edumoreira_dev" /> </li>
         <div class="h-px xs:w-[1.5rem] w-[1rem] bg-neutral-900"></div>
         <li> <app-social-icon icon="ri-linkedin-fill" /> </li>
         <div class="h-px xs:w-[1.5rem] w-[1rem] bg-neutral-900"></div>
-        <li> <app-social-icon icon="fi fi-brands-github flex" /> </li>
+        <li> <app-social-icon icon="fi fi-brands-github flex" url="https://github.com/edumoreiira" /> </li>
         <div class="h-px xs:w-[1.5rem] w-[1rem] bg-neutral-900"></div>
-        <li> <app-social-icon icon="fi fi-sr-envelope-plus flex" /> </li>
+        <li> <app-social-icon icon="fi fi-sr-envelope-plus flex" url="mailto:edumoreira.dev@gmail.com" /> </li>
     </ul>
     <p class="text-neutral-300 text-sm">{{ lg().footer.copyright }}</p>
     `,

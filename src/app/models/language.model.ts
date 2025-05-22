@@ -3,7 +3,7 @@ export interface LanguageApllication {
         menu: {
             home: string;
             works: string;
-            about: string;
+            techs: string;
         }
         contact: string;
     },
@@ -57,7 +57,7 @@ export const language_pt_br: LanguageApllication = {
         menu: {
             home: "Home",
             works: "Trabalhos",
-            about: "Sobre",
+            techs: "Tecnologias",
         },
         contact: "Entrar em contato",
     },
@@ -65,8 +65,8 @@ export const language_pt_br: LanguageApllication = {
         misc: "Desenvolvedor Angular",
         title: ["Olá, me chamo", "Eduardo", "sou", "Desenvolvedor", "e", "Designer" ],
         description: "Crio sites modernos, rápidos e com design de impacto. Transformo ideias em páginas que valorizam seu negócio e destacam sua marca na internet.",
-        button1: "Ver trabalhos",
-        button2: "Sobre Mim",
+        button1: "Fale comigo",
+        button2: "Meus trabalhos",
     },
     works: {
         title: "Meus Trabalhos",
@@ -148,16 +148,16 @@ export const language_en_us: LanguageApllication = {
         menu: {
             home: "Home",
             works: "Works",
-            about: "About",
+            techs: "Technologies",
         },
-        contact: "Contact me",
+        contact: "Get in touch",
     },
     main: {
         misc: "Angular Developer",
         title: ["Hello, my name is", "Eduardo", "I'm", "Developer", "and", "Designer"],
         description: "Creating modern, fast websites with impactful design. I turn ideas into pages that add value to your business and highlight your brand on the internet.",
-        button1: "See works",
-        button2: "About me",
+        button1: "Get in touch",
+        button2: "My works",
     },
     works: {
         title: "My Works",

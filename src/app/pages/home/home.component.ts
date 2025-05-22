@@ -24,30 +24,39 @@ export class HomeComponent {
   setCurrentSiteIndex(index: number) {
     this.sitePreviewerService.setCurrentIndex(index);
   }
-websites = computed<WebSites[]>(() => [
-  {
-    technologies: ["angular", "tailwind", "html", "css", "js"],
-    title: "Bera Pools",
-    description: this.lg().works.accordions[0].description,
-    button: this.lg().works.accordions[0].button,
-    imgUrl: "./website-preview/bera-pools.jpeg",
-    websiteUrl: "https://ysociety-eth.github.io/web3-wallet-manager/"
-  },
-  {
-    technologies: ["angular", "html", "css", "js"],
-    title: "Experience Life",
-    description: this.lg().works.accordions[1].description,
-    button: this.lg().works.accordions[1].button,
-    imgUrl: "./website-preview/experience-life.jpeg",
-    websiteUrl: "https://edumoreiira.github.io/experience-life/"
-  },
-  {
-    technologies: ["angular", "tailwind", "html", "css", "js"],
-    title: "Aju-Films",
-    description: this.lg().works.accordions[2].description,
-    button: this.lg().works.accordions[2].button,
-    imgUrl: "./website-preview/aju-films.jpeg",
-    websiteUrl: "https://edumoreiira.github.io/aju-films/"
-  },
-]);
+  websites = computed<WebSites[]>(() => [
+    {
+      technologies: ["angular", "tailwind", "html", "css", "js"],
+      title: "Bera Pools",
+      description: this.lg().works.accordions[0].description,
+      button: this.lg().works.accordions[0].button,
+      imgUrl: "./website-preview/bera-pools.jpeg",
+      websiteUrl: "https://ysociety-eth.github.io/web3-wallet-manager/"
+    },
+    {
+      technologies: ["angular", "html", "css", "js"],
+      title: "Experience Life",
+      description: this.lg().works.accordions[1].description,
+      button: this.lg().works.accordions[1].button,
+      imgUrl: "./website-preview/experience-life.jpeg",
+      websiteUrl: "https://edumoreiira.github.io/experience-life/"
+    },
+    {
+      technologies: ["angular", "tailwind", "html", "css", "js"],
+      title: "Aju-Films",
+      description: this.lg().works.accordions[2].description,
+      button: this.lg().works.accordions[2].button,
+      imgUrl: "./website-preview/aju-films.jpeg",
+      websiteUrl: "https://edumoreiira.github.io/aju-films/"
+    },
+  ]);
+
+  scrollTo(id: string) {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+
 }
