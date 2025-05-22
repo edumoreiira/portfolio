@@ -34,4 +34,14 @@ export class TechComponent {
     onMouseLeave() {
         this.hovered.set(false);
     }
+
+    @HostListener('focus')
+    onFocus() {
+        this.hovered.set(true);
+    }
+    @HostListener('blur')
+    onBlur() {
+        this.hovered.set(false);
+    }
+    
 }
