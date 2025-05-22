@@ -122,7 +122,6 @@ export class SitePreviewerComponent implements OnInit {
 
   setIframeLoaded(loaded: boolean) {
     if(this.iframeRef) {
-      console.log('Iframe loaded:', loaded);
       this.iframe.update((state) => ({
         ...state,
         loaded: loaded
