@@ -11,7 +11,7 @@ import { NgClass } from '@angular/common';
   },
   template: `
     <div class="flex items-center justify-between gap-2 xs:gap-18 lg:gap-22">
-      <h3 class="leading-none font-semibold text-lg whitespace-nowrap">{{ title() }}</h3>
+      <h2 class="leading-none font-semibold text-lg whitespace-nowrap">{{ title() }}</h2>
       <div class="flex items-center gap-1">
           <i class="fi {{ icon() }} flex text-lg"></i>
           <i class="fi fi-rr-caret-down flex text-sm transition-transform duration-200"

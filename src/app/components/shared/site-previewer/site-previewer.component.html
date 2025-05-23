@@ -28,19 +28,20 @@
             </div>
             <button class="absolute top-1/2 left-1/13 -translate-y-1/2 bg-neutral-900/15 backdrop-blur rounded-full p-3 border border-neutral-100/10 sm:opacity-20 group-hover:opacity-100
             hover:bg-neutral-900/30 hover:border-neutral-100/30 transition-all z-10"
-            style="view-transition-name: left-btn;"
+            style="view-transition-name: left-btn;" aria-label="Previous website"
             (click)="previous()">
                 <i class="fi fi-rr-angle-small-left flex"></i>
             </button>
             <button class="absolute top-1/2 right-1/13 -translate-y-1/2 bg-neutral-900/15 backdrop-blur rounded-full p-3 border border-neutral-100/10 sm:opacity-20 group-hover:opacity-100
             hover:bg-neutral-900/30 hover:border-neutral-100/30 transition-all z-10"
-            style="view-transition-name: right-btn;"
+            style="view-transition-name: right-btn;" aria-label="Next website"
             (click)="next()">
                 <i class="fi fi-rr-angle-small-right flex"></i>
             </button>
             <span class="absolute p-4 bottom-1/3 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-full z-10 
             transition-all duration-150 ease-out
-            group-hover:bg-neutral-950/10 group-hover:opacity-0 group-hover:scale-150 pointer-events-none">
+            group-hover:bg-neutral-950/10 group-hover:opacity-0 group-hover:scale-150 pointer-events-none"
+            aria-label="Open website preview">
                 <img class="w-6 h-6 object-fit object-center" 
                 src="./icons/cursor-finger-click.png" alt="Click here button">
             </span>

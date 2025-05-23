@@ -13,17 +13,17 @@ import { IntersectionObserverDirective } from '../../../directives/intersection-
     <span class="text-3xl font-medium font-[Kanit] cursor-default">[edumoreira]</span>
     <ul class="flex items-center"
     InterObs intersectChild="true" obsClass="fadeIn">
-        <li class="delay-1"> <app-social-icon icon="flex fi fi-brands-instagram" url="https://www.instagram.com/edumoreira.dev/"/> </li>
-        <div class="delay-1 h-px xs:w-[1.5rem] w-[1rem] bg-neutral-900"></div>
-        <li class="delay-2"> <app-social-icon icon="flex fi fi-brands-behance" url="https://www.behance.net/eduumoreira" /> </li>
-        <div class="delay-2 h-px xs:w-[1.5rem] w-[1rem] bg-neutral-900"></div>
-        <li class="delay-3"> <app-social-icon icon="flex fi fi-brands-twitter-alt-circle" url="https://x.com/edumoreira_dev" /> </li>
-        <div class="delay-3 h-px xs:w-[1.5rem] w-[1rem] bg-neutral-900"></div>
-        <li class="delay-4"> <app-social-icon icon="ri-linkedin-fill" /> </li>
-        <div class="delay-4 h-px xs:w-[1.5rem] w-[1rem] bg-neutral-900"></div>
-        <li class="delay-5"> <app-social-icon icon="fi fi-brands-github flex" url="https://github.com/edumoreiira" /> </li>
-        <div class="delay-5 h-px xs:w-[1.5rem] w-[1rem] bg-neutral-900"></div>
-        <li class="delay-5"> <app-social-icon icon="fi fi-sr-envelope-plus flex" url="mailto:edumoreira.dev@gmail.com" /> </li>
+        <li class="delay-1"> <app-social-icon icon="ri-instagram-fill text-2xl" url="https://www.instagram.com/edumoreira.dev/" description="Instagram"/> </li>
+        <li aria-hidden="true" class="delay-1 h-px xs:w-[1.5rem] w-[1rem] bg-neutral-900"></li>
+        <li class="delay-2"> <app-social-icon icon="flex fi fi-brands-behance" url="https://www.behance.net/eduumoreira" description="Behance"/> </li>
+        <li aria-hidden="true" class="delay-2 h-px xs:w-[1.5rem] w-[1rem] bg-neutral-900"></li>
+        <li class="delay-3"> <app-social-icon icon="flex fi fi-brands-twitter-alt-circle" url="https://x.com/edumoreira_dev" description="Twitter"/> </li>
+        <li aria-hidden="true" class="delay-3 h-px xs:w-[1.5rem] w-[1rem] bg-neutral-900"></li>
+        <li class="delay-4"> <app-social-icon icon="ri-linkedin-fill text-xl" description="Linkedin"/> </li>
+        <li aria-hidden="true" class="delay-4 h-px xs:w-[1.5rem] w-[1rem] bg-neutral-900"></li>
+        <li class="delay-5"> <app-social-icon icon="fi fi-brands-github flex" url="https://github.com/edumoreiira" description="Github"/> </li>
+        <li aria-hidden="true" class="delay-5 h-px xs:w-[1.5rem] w-[1rem] bg-neutral-900"></li>
+        <li class="delay-5"> <app-social-icon icon="fi fi-sr-envelope-plus flex" url="mailto:edumoreira.dev@gmail.com" description="Email"/> </li>
     </ul>
     <p class="text-neutral-300 text-sm delay-8">{{ lg().footer.copyright }}</p>
     `,
