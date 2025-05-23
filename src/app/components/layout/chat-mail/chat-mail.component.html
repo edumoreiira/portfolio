@@ -8,26 +8,28 @@ focus-within:outline-1 focus-within:outline-neutral-600 transition-colors relati
      text-neutral-300 placeholder:text-neutral-600 transition-all">
     </textarea>
     <!-- clickable surface -->
-    <div class="flex-1 cursor-text mb-2"
+    <div class="flex-1 cursor-text mb-6"
     (mousedown)="$event.preventDefault()"
     (mouseup)="surfaceClick()"></div>
     <!-- clickable surface -->
     <div class="flex gap-2 items-center justify-between">
-        <div class="flex items-center gap-2 text-sm"
+        <div class="flex items-center gap-4 sm:gap-3 text-sm"
         role="radiogroup" aria-label="Escolha o método de contato">
             <button type="button" role="radio" [attr.aria-checked]="type() === 'email'"
-            class="p-2 rounded-full border transition-colors"
+            class="p-3 md:p-2 rounded-full border transition-colors"
             [ngClass]="type() === 'email' ? 'border-neutral-100 bg-neutral-100 text-neutral-950' : 'border-neutral-700 hover:border-neutral-500'"
             (click)="setType('email')">
                 <span class="sr-only">Email</span>
                 <i class="fi fi-rr-at flex"></i>
             </button>
             <button type="button" role="radio" [attr.aria-checked]="type() === 'whatsapp'"
-            class="p-2 rounded-full border transition-colors"
+            class="relative p-3 md:p-2 rounded-full border transition-colors"
             [ngClass]="type() === 'whatsapp' ? 'border-green-400 bg-green-400 text-neutral-950' : 'border-neutral-700 hover:border-neutral-500'"
             (click)="setType('whatsapp')">
                 <span class="sr-only">WhatsApp</span>
                 <i class="fi fi-brands-whatsapp flex"></i>
+                <span class="absolute top-px right-px w-[.5rem] md:w-[.4rem] aspect-square rounded-full bg-green-400"
+                [ngClass]="type() === 'email' ? 'animate-ping' : 'hidden'"></span>
             </button>
         </div>
         <button custom-btn variant="contained" class="py-2 px-4 flex items-center gap-2 text-sm
